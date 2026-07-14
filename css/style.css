@@ -336,6 +336,30 @@ main, .footer { position: relative; z-index: 2; }
 .about-points strong { display: block; font-size: 1.02rem; }
 .about-points span { color: var(--ink-dim); font-size: 0.92rem; }
 
+/* ══════════════ MESSAGES ══════════════ */
+.messages { padding-top: 0; padding-bottom: 20px; }
+.messages-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.message-card {
+  background: var(--card); border: 1px solid var(--card-border);
+  border-radius: var(--radius); padding: 38px 32px; backdrop-filter: blur(12px);
+  transition: border-color 0.4s, background 0.4s;
+}
+.message-card:hover { border-color: rgba(255,201,60,0.4); background: rgba(255,255,255,0.08); }
+.message-card h3 { font-size: 1.2rem; margin: 14px 0 10px; }
+.message-card p { color: var(--ink-dim); font-size: 0.95rem; }
+@media (max-width: 860px) { .messages-grid { grid-template-columns: 1fr; } }
+
+/* ══════════════ PRINCIPAL NOTE ══════════════ */
+.principal-note {
+  margin: 0 0 30px; padding: 22px 26px;
+  background: rgba(255, 201, 60, 0.06);
+  border-left: 3px solid var(--yellow);
+  border-radius: 0 18px 18px 0;
+}
+.principal-note p { font-style: italic; font-size: 0.96rem; margin-bottom: 10px; }
+.principal-note footer { color: var(--ink-dim); font-size: 0.85rem; }
+.principal-note footer strong { color: var(--yellow); }
+
 /* ══════════════ STATS ══════════════ */
 .stats { padding-top: 20px; }
 .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
