@@ -247,17 +247,24 @@
   gsap.set(".reveal-hero", { opacity: 0 });
 
   /* ══════════════ SCROLL REVEALS ══════════════ */
+  /* Driven by IntersectionObserver rather than ScrollTrigger so they are
+     immune to layout shifts from late-loading images. */
+  var revealEls = document.querySelectorAll(".reveal");
   if (!prefersReducedMotion) {
-    gsap.utils.toArray(".reveal").forEach(function (el, i) {
-      gsap.fromTo(el,
-        { opacity: 0, y: 56 },
-        {
-          opacity: 1, y: 0, duration: 1, ease: "power3.out",
-          scrollTrigger: { trigger: el, start: "top 88%", toggleActions: "play none none none" },
-          delay: (i % 4) * 0.06
-        }
-      );
-    });
+    gsap.set(revealEls, { opacity: 0, y: 56 });
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        revealObserver.unobserve(entry.target);
+        gsap.to(entry.target, { opacity: 1, y: 0, duration: 1, ease: "power3.out" });
+      });
+    }, { rootMargin: "0px 0px -10% 0px" });
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
+  } else {
+    gsap.set(revealEls, { opacity: 1 });
+  }
+
+  if (!prefersReducedMotion) {
 
     /* Parallax on about floating cards */
     gsap.utils.toArray("[data-speed]").forEach(function (el) {
@@ -293,13 +300,6 @@
       });
     }
 
-    /* CTA panel dramatic entrance */
-    gsap.from(".cta-panel", {
-      scale: 0.88, opacity: 0, duration: 1.2, ease: "power3.out",
-      scrollTrigger: { trigger: ".cta-panel", start: "top 85%" }
-    });
-  } else {
-    gsap.set(".reveal", { opacity: 1 });
   }
 
   /* ══════════════ COUNTERS ══════════════ */
