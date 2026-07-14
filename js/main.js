@@ -74,7 +74,7 @@
 
     /* — Star/particle field (3 layers, brand colors) — */
     var particleGroups = [];
-    var palettes = [0xffc93c, 0x2ee6c8, 0x8b7bff];
+    var palettes = [0xffb324, 0x4fd867, 0x8b7bff];
     for (var l = 0; l < 3; l++) {
       var count = isTouch ? 500 : 900;
       var positions = new Float32Array(count * 3);
@@ -112,9 +112,9 @@
       shapes.push(mesh);
     }
     addShape(new THREE.TorusKnotGeometry(1.15, 0.32, 90, 12), 0x8b7bff, -5.4, 2.2, -3, 0.5);
-    addShape(new THREE.IcosahedronGeometry(1.05, 0), 0x2ee6c8, 5.2, -1.6, -2, 0.7);
-    addShape(new THREE.OctahedronGeometry(0.85, 0), 0xffc93c, 4.6, 2.8, -4, 0.9);
-    addShape(new THREE.TorusGeometry(0.85, 0.24, 14, 44), 0xff6b6b, -4.8, -2.6, -3.5, 0.6);
+    addShape(new THREE.IcosahedronGeometry(1.05, 0), 0x4fd867, 5.2, -1.6, -2, 0.7);
+    addShape(new THREE.OctahedronGeometry(0.85, 0), 0xffb324, 4.6, 2.8, -4, 0.9);
+    addShape(new THREE.TorusGeometry(0.85, 0.24, 14, 44), 0xff9440, -4.8, -2.6, -3.5, 0.6);
     addShape(new THREE.DodecahedronGeometry(0.6, 0), 0x4da3ff, 0.5, 3.6, -6, 0.8);
     addShape(new THREE.TetrahedronGeometry(0.7, 0), 0xff8cdc, -1.8, -3.4, -5, 1.1);
 
