@@ -122,6 +122,13 @@ main, .footer { position: relative; z-index: 2; }
   height: 64px;
 }
 .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.02rem; }
+.nav-logo-img {
+  height: 48px; width: auto; border-radius: 12px;
+  background: #fff; padding: 3px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  animation: logoFloat 3.5s ease-in-out infinite;
+}
+.nav.scrolled .nav-logo-img { height: 42px; }
 .nav-logo-icon {
   font-size: 1.7rem;
   filter: drop-shadow(0 0 12px rgba(255, 179, 36, 0.55));
@@ -304,6 +311,7 @@ main, .footer { position: relative; z-index: 2; }
   box-shadow: 0 40px 80px rgba(0,0,0,0.45);
 }
 .about-emoji { font-size: clamp(6rem, 13vw, 11rem); filter: drop-shadow(0 24px 40px rgba(0,0,0,0.5)); }
+.about-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .about-card-shine {
   position: absolute; inset: 0;
   background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.09) 48%, transparent 62%);
@@ -346,6 +354,11 @@ main, .footer { position: relative; z-index: 2; }
 }
 .message-card:hover { border-color: rgba(255,179,36,0.4); background: rgba(255,255,255,0.08); }
 .message-card h3 { font-size: 1.2rem; margin: 14px 0 10px; }
+.message-photo {
+  width: 100%; height: 210px; object-fit: cover;
+  border-radius: 16px; margin-bottom: 20px;
+  border: 1px solid var(--card-border);
+}
 .message-card p { color: var(--ink-dim); font-size: 0.95rem; }
 @media (max-width: 860px) { .messages-grid { grid-template-columns: 1fr; } }
 
@@ -461,6 +474,16 @@ main, .footer { position: relative; z-index: 2; }
 .lc-4 { background: linear-gradient(160deg, rgba(79,216,103,0.32), rgba(79,216,103,0.06)); }
 .lc-5 { background: linear-gradient(160deg, rgba(139,123,255,0.32), rgba(139,123,255,0.06)); }
 .lc-6 { background: linear-gradient(160deg, rgba(255,140,220,0.32), rgba(255,140,220,0.06)); }
+.life-card-photo {
+  padding: 14px 14px 26px;
+  background: linear-gradient(160deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03));
+}
+.life-card-photo h3 { padding: 0 14px; }
+.life-card-photo p { padding: 0 14px; }
+.life-photo {
+  width: 100%; height: 240px; object-fit: cover;
+  border-radius: 18px; margin-bottom: 18px; display: block;
+}
 .life-emoji { font-size: 3.4rem; display: block; margin-bottom: 20px; filter: drop-shadow(0 12px 22px rgba(0,0,0,0.4)); }
 .life-card h3 { font-size: 1.3rem; margin-bottom: 8px; }
 .life-card p { color: var(--ink-dim); font-size: 0.92rem; }
