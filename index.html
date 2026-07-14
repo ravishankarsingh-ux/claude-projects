@@ -400,9 +400,18 @@
 
   <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
 
+  <!-- ══════════════ LIGHTBOX ══════════════ -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close image viewer">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">‹</button>
+    <img class="lightbox-img" id="lightboxImg" alt="Mom Grandridge School photo" />
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">›</button>
+  </div>
+
   <script src="assets/vendor/three.min.js"></script>
   <script src="assets/vendor/gsap.min.js"></script>
   <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/gallery.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

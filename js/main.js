@@ -246,6 +246,23 @@
   }
   gsap.set(".reveal-hero", { opacity: 0 });
 
+  /* ══════════════ GALLERY CARDS (from assets/gallery via js/gallery.js) ══════════════ */
+  /* Runs before the horizontal-scroll trigger is created so the track
+     width is measured with all cards in place. */
+  var galleryTrack = document.getElementById("lifeTrack");
+  (window.GALLERY_IMAGES || []).forEach(function (name) {
+    var card = document.createElement("div");
+    card.className = "life-card life-card-photo life-card-gallery";
+    var img = document.createElement("img");
+    img.className = "life-photo";
+    img.src = "assets/gallery/" + name;
+    img.alt = "Mom Grandridge School gallery photo";
+    img.loading = "lazy";
+    img.onerror = function () { card.style.display = "none"; };
+    card.appendChild(img);
+    galleryTrack.appendChild(card);
+  });
+
   /* ══════════════ SCROLL REVEALS ══════════════ */
   /* Driven by IntersectionObserver rather than ScrollTrigger so they are
      immune to layout shifts from late-loading images. */
@@ -368,6 +385,43 @@
     timer = setInterval(function () { goTo(current + 1); }, 5200);
   }
   if (!prefersReducedMotion) restart();
+
+  /* ══════════════ LIGHTBOX ══════════════ */
+  var lightbox = document.getElementById("lightbox");
+  var lightboxImg = document.getElementById("lightboxImg");
+  var lbItems = Array.prototype.slice.call(
+    document.querySelectorAll(".life-photo, .about-photo, .section-poster, .cta-poster")
+  );
+  var lbIndex = 0;
+
+  function openLightbox(i) {
+    lbIndex = (i + lbItems.length) % lbItems.length;
+    lightboxImg.src = lbItems[lbIndex].src;
+    lightboxImg.alt = lbItems[lbIndex].alt || "Mom Grandridge School photo";
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+  function closeLightbox() {
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  lbItems.forEach(function (img, i) {
+    img.classList.add("lb-zoom");
+    img.addEventListener("click", function () { openLightbox(i); });
+  });
+  document.getElementById("lightboxClose").addEventListener("click", closeLightbox);
+  document.getElementById("lightboxPrev").addEventListener("click", function () { openLightbox(lbIndex - 1); });
+  document.getElementById("lightboxNext").addEventListener("click", function () { openLightbox(lbIndex + 1); });
+  lightbox.addEventListener("click", function (e) { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener("keydown", function (e) {
+    if (!lightbox.classList.contains("open")) return;
+    if (e.key === "Escape") closeLightbox();
+    else if (e.key === "ArrowLeft") openLightbox(lbIndex - 1);
+    else if (e.key === "ArrowRight") openLightbox(lbIndex + 1);
+  });
 
   /* ══════════════ CONTACT FORM (demo handler) ══════════════ */
   var form = document.querySelector(".contact-form");
