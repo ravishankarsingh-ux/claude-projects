@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M.O.M Grand Ridge School — Nurturing Minds, Shaping Futures</title>
+  <meta name="description" content="M.O.M Grand Ridge School — a vibrant learning community offering holistic education from Pre-Primary to Secondary. Admissions open." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ══════════════ PRELOADER ══════════════ -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">🎓</div>
+      <div class="preloader-text">M.O.M GRAND RIDGE</div>
+      <div class="preloader-bar"><span id="preloaderBar"></span></div>
+      <div class="preloader-pct" id="preloaderPct">0%</div>
+    </div>
+  </div>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Custom cursor glow (desktop only) -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- ══════════════ THREE.JS 3D BACKGROUND ══════════════ -->
+  <canvas id="bg3d"></canvas>
+
+  <!-- ══════════════ NAVBAR ══════════════ -->
+  <header class="nav" id="nav">
+    <a href="#home" class="nav-logo">
+      <span class="nav-logo-icon">🎓</span>
+      <span class="nav-logo-text">M.O.M <em>Grand Ridge</em> School</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#programs" class="nav-link">Programs</a>
+      <a href="#facilities" class="nav-link">Facilities</a>
+      <a href="#life" class="nav-link">School Life</a>
+      <a href="#testimonials" class="nav-link">Parents</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <a href="#admissions" class="nav-cta">Apply Now</a>
+    </nav>
+    <button class="nav-burger" id="navBurger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- ══════════════ HERO ══════════════ -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="hero-badge reveal-hero">✨ Admissions Open 2026–27</div>
+        <h1 class="hero-title">
+          <span class="line"><span>Where&nbsp;Young</span></span>
+          <span class="line"><span class="grad-1">Minds</span>&nbsp;<span>Learn&nbsp;to</span></span>
+          <span class="line"><span class="grad-2">Dream&nbsp;Big</span></span>
+        </h1>
+        <p class="hero-sub reveal-hero">
+          M.O.M Grand Ridge School is a joyful learning community where curiosity is
+          celebrated, character is built, and every child discovers their own brilliance —
+          from Pre-Primary through Secondary.
+        </p>
+        <div class="hero-actions reveal-hero">
+          <a href="#admissions" class="btn btn-primary"><span>Begin the Journey</span> <i>→</i></a>
+          <a href="#about" class="btn btn-ghost"><span>Explore the School</span></a>
+        </div>
+        <div class="hero-chips reveal-hero">
+          <div class="chip float-1">📚 Pre-K to Grade 10</div>
+          <div class="chip float-2">🧪 STEM Labs</div>
+          <div class="chip float-3">🏆 Sports & Arts</div>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <div class="mouse"><span></span></div>
+        <p>Scroll to explore</p>
+      </div>
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+    </section>
+
+    <!-- ══════════════ MARQUEE ══════════════ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>🎓 Admissions Open 2026–27</span><span>✦</span>
+        <span>Holistic Education</span><span>✦</span>
+        <span>Experienced Educators</span><span>✦</span>
+        <span>Safe & Caring Campus</span><span>✦</span>
+        <span>Sports · Arts · Technology</span><span>✦</span>
+        <span>🎓 Admissions Open 2026–27</span><span>✦</span>
+        <span>Holistic Education</span><span>✦</span>
+        <span>Experienced Educators</span><span>✦</span>
+        <span>Safe & Caring Campus</span><span>✦</span>
+        <span>Sports · Arts · Technology</span><span>✦</span>
+      </div>
+    </div>
+
+    <!-- ══════════════ ABOUT ══════════════ -->
+    <section class="section about" id="about">
+      <div class="container split">
+        <div class="about-visual" data-tilt>
+          <div class="about-card-main">
+            <div class="about-emoji">🏫</div>
+            <div class="about-card-shine"></div>
+          </div>
+          <div class="about-card-float about-card-a" data-speed="0.4">🎨 Creative Arts</div>
+          <div class="about-card-float about-card-b" data-speed="-0.3">⚽ Team Spirit</div>
+          <div class="about-card-float about-card-c" data-speed="0.6">💡 Young Innovators</div>
+          <div class="orbit-ring"></div>
+        </div>
+        <div class="about-copy">
+          <p class="eyebrow reveal">— About Our School</p>
+          <h2 class="section-title reveal">A Place Where Every Child <span class="grad-1">Belongs & Blossoms</span></h2>
+          <!-- TODO: Replace with the school's real "About" copy from momgrandridgeschool.com -->
+          <p class="reveal">
+            At M.O.M Grand Ridge School we believe education is more than textbooks —
+            it is the art of lighting a spark. Our classrooms blend strong academic
+            foundations with creativity, values and real-world skills, so children grow
+            into confident, compassionate and capable young people.
+          </p>
+          <ul class="about-points">
+            <li class="reveal"><i>🌱</i><div><strong>Child-First Learning</strong><span>Small class sizes and personal attention for every learner.</span></div></li>
+            <li class="reveal"><i>🧭</i><div><strong>Values & Character</strong><span>Kindness, discipline and leadership woven into daily life.</span></div></li>
+            <li class="reveal"><i>🚀</i><div><strong>Future-Ready Skills</strong><span>Coding, communication and critical thinking from an early age.</span></div></li>
+          </ul>
+          <a href="#programs" class="btn btn-primary reveal"><span>See Our Programs</span> <i>→</i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ STATS ══════════════ -->
+    <section class="section stats" id="stats">
+      <div class="container">
+        <div class="stats-grid">
+          <!-- TODO: Replace numbers with the school's real statistics -->
+          <div class="stat-card reveal" data-tilt><div class="stat-num"><span class="counter" data-target="1200">0</span>+</div><p>Happy Students</p><div class="stat-icon">🧒</div></div>
+          <div class="stat-card reveal" data-tilt><div class="stat-num"><span class="counter" data-target="80">0</span>+</div><p>Expert Educators</p><div class="stat-icon">👩‍🏫</div></div>
+          <div class="stat-card reveal" data-tilt><div class="stat-num"><span class="counter" data-target="25">0</span>+</div><p>Years of Excellence</p><div class="stat-icon">🎖️</div></div>
+          <div class="stat-card reveal" data-tilt><div class="stat-num"><span class="counter" data-target="150">0</span>+</div><p>Awards & Honours</p><div class="stat-icon">🏆</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ PROGRAMS ══════════════ -->
+    <section class="section programs" id="programs">
+      <div class="container">
+        <p class="eyebrow center reveal">— Academic Programs</p>
+        <h2 class="section-title center reveal">One Journey, <span class="grad-2">Every Stage</span></h2>
+        <p class="section-sub center reveal">A seamless learning path designed to grow with your child.</p>
+        <div class="programs-grid">
+          <article class="program-card reveal" data-tilt>
+            <div class="program-icon pi-1">🧸</div>
+            <h3>Pre-Primary</h3>
+            <p class="program-age">Playgroup · Nursery · KG</p>
+            <p>Play-based learning that builds language, motor skills and a lifelong love of discovery in a warm, safe space.</p>
+            <a href="#admissions" class="program-link">Learn more →</a>
+          </article>
+          <article class="program-card reveal" data-tilt>
+            <div class="program-icon pi-2">📖</div>
+            <h3>Primary School</h3>
+            <p class="program-age">Grades 1 – 5</p>
+            <p>Strong foundations in literacy, numeracy and science, enriched with art, music, sport and hands-on projects.</p>
+            <a href="#admissions" class="program-link">Learn more →</a>
+          </article>
+          <article class="program-card reveal" data-tilt>
+            <div class="program-icon pi-3">🔬</div>
+            <h3>Middle School</h3>
+            <p class="program-age">Grades 6 – 8</p>
+            <p>Inquiry-driven academics, lab experiments, debate and technology that turn curiosity into competence.</p>
+            <a href="#admissions" class="program-link">Learn more →</a>
+          </article>
+          <article class="program-card reveal" data-tilt>
+            <div class="program-icon pi-4">🎯</div>
+            <h3>Secondary School</h3>
+            <p class="program-age">Grades 9 – 10</p>
+            <p>Focused board-exam preparation, career guidance and leadership opportunities for tomorrow's achievers.</p>
+            <a href="#admissions" class="program-link">Learn more →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ FACILITIES ══════════════ -->
+    <section class="section facilities" id="facilities">
+      <div class="container">
+        <p class="eyebrow center reveal">— World-Class Facilities</p>
+        <h2 class="section-title center reveal">Built for <span class="grad-1">Big Imaginations</span></h2>
+        <div class="facilities-grid">
+          <div class="facility reveal"><div class="facility-icon">🖥️</div><h3>Smart Classrooms</h3><p>Interactive digital boards and modern teaching aids in every room.</p></div>
+          <div class="facility reveal"><div class="facility-icon">🧪</div><h3>Science & STEM Labs</h3><p>Fully equipped physics, chemistry, biology and robotics labs.</p></div>
+          <div class="facility reveal"><div class="facility-icon">📚</div><h3>Library & Reading Zone</h3><p>Thousands of books, story corners and quiet study spaces.</p></div>
+          <div class="facility reveal"><div class="facility-icon">🏀</div><h3>Sports Complex</h3><p>Playgrounds, courts and coaching for athletics and team sports.</p></div>
+          <div class="facility reveal"><div class="facility-icon">🎭</div><h3>Arts & Music Studios</h3><p>Dedicated spaces for dance, drama, music and fine arts.</p></div>
+          <div class="facility reveal"><div class="facility-icon">🚌</div><h3>Safe Transport</h3><p>GPS-tracked buses with trained attendants covering the region.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ SCHOOL LIFE — HORIZONTAL SCROLL ══════════════ -->
+    <section class="life" id="life">
+      <div class="life-pin">
+        <div class="life-head">
+          <p class="eyebrow center">— Life at Grand Ridge</p>
+          <h2 class="section-title center">Every Day is an <span class="grad-2">Adventure</span></h2>
+        </div>
+        <div class="life-track" id="lifeTrack">
+          <div class="life-card lc-1"><span class="life-emoji">🎪</span><h3>Annual Day</h3><p>A grand stage where every child shines.</p></div>
+          <div class="life-card lc-2"><span class="life-emoji">🔭</span><h3>Science Fair</h3><p>Young inventors showcase big ideas.</p></div>
+          <div class="life-card lc-3"><span class="life-emoji">🏅</span><h3>Sports Meet</h3><p>Teamwork, grit and glorious victories.</p></div>
+          <div class="life-card lc-4"><span class="life-emoji">🌍</span><h3>Field Trips</h3><p>Learning that travels beyond walls.</p></div>
+          <div class="life-card lc-5"><span class="life-emoji">🎨</span><h3>Art Carnival</h3><p>Colour, craft and boundless creativity.</p></div>
+          <div class="life-card lc-6"><span class="life-emoji">🎄</span><h3>Celebrations</h3><p>Festivals that bring us all together.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ TESTIMONIALS ══════════════ -->
+    <section class="section testimonials" id="testimonials">
+      <div class="container">
+        <p class="eyebrow center reveal">— What Parents Say</p>
+        <h2 class="section-title center reveal">Loved by <span class="grad-1">Families</span></h2>
+        <!-- TODO: Replace with real parent testimonials from the school -->
+        <div class="testi-slider reveal" id="testiSlider">
+          <div class="testi-slide active">
+            <div class="testi-stars">★★★★★</div>
+            <p>"The teachers genuinely care about each child. My daughter runs to school every morning — that says everything."</p>
+            <div class="testi-author"><span class="testi-avatar">👩</span><div><strong>A Proud Parent</strong><span>Grade 3 Parent</span></div></div>
+          </div>
+          <div class="testi-slide">
+            <div class="testi-stars">★★★★★</div>
+            <p>"Wonderful balance of academics and activities. My son's confidence has grown tremendously in just one year."</p>
+            <div class="testi-author"><span class="testi-avatar">👨</span><div><strong>A Happy Father</strong><span>Grade 7 Parent</span></div></div>
+          </div>
+          <div class="testi-slide">
+            <div class="testi-stars">★★★★★</div>
+            <p>"Safe, nurturing and forward-thinking. The communication from the school keeps us involved every step of the way."</p>
+            <div class="testi-author"><span class="testi-avatar">👩‍🦰</span><div><strong>A Grateful Mother</strong><span>KG Parent</span></div></div>
+          </div>
+          <div class="testi-dots" id="testiDots"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ ADMISSIONS CTA ══════════════ -->
+    <section class="section admissions" id="admissions">
+      <div class="container">
+        <div class="cta-panel reveal" data-tilt>
+          <div class="cta-shapes"><span></span><span></span><span></span><span></span></div>
+          <h2>Ready to Join the <span class="grad-3">Grand Ridge Family?</span></h2>
+          <p>Admissions for the 2026–27 academic year are now open. Limited seats — schedule a campus tour today.</p>
+          <div class="cta-actions">
+            <a href="#contact" class="btn btn-light"><span>Enquire Now</span> <i>→</i></a>
+            <a href="#contact" class="btn btn-outline"><span>Book a Campus Tour</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ CONTACT ══════════════ -->
+    <section class="section contact" id="contact">
+      <div class="container split">
+        <div class="contact-info">
+          <p class="eyebrow reveal">— Get in Touch</p>
+          <h2 class="section-title reveal">We'd Love to <span class="grad-2">Hear From You</span></h2>
+          <!-- TODO: Replace with the school's real address, phone and email -->
+          <div class="contact-cards">
+            <div class="contact-card reveal"><i>📍</i><div><strong>Visit Us</strong><span>M.O.M Grand Ridge School Campus<br/>(Replace with full address)</span></div></div>
+            <div class="contact-card reveal"><i>📞</i><div><strong>Call Us</strong><span>+00 00000 00000<br/>Mon–Sat, 8:00 AM – 4:00 PM</span></div></div>
+            <div class="contact-card reveal"><i>✉️</i><div><strong>Email Us</strong><span>info@momgrandridgeschool.com</span></div></div>
+          </div>
+        </div>
+        <form class="contact-form reveal" data-tilt onsubmit="return false;">
+          <h3>Admission Enquiry</h3>
+          <div class="form-row">
+            <input type="text" placeholder="Parent's Name" required />
+            <input type="tel" placeholder="Phone Number" required />
+          </div>
+          <input type="email" placeholder="Email Address" required />
+          <select required>
+            <option value="" disabled selected>Grade Applying For</option>
+            <option>Pre-Primary (Playgroup–KG)</option>
+            <option>Primary (Grades 1–5)</option>
+            <option>Middle (Grades 6–8)</option>
+            <option>Secondary (Grades 9–10)</option>
+          </select>
+          <textarea rows="4" placeholder="Your Message"></textarea>
+          <button type="submit" class="btn btn-primary btn-block"><span>Send Enquiry</span> <i>→</i></button>
+          <p class="form-note">We usually respond within one working day.</p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="nav-logo"><span class="nav-logo-icon">🎓</span><span class="nav-logo-text">M.O.M <em>Grand Ridge</em> School</span></a>
+        <p>Nurturing minds, shaping futures — one child at a time.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">ⓕ</a>
+          <a href="#" aria-label="Instagram">◉</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="#about">About Us</a>
+        <a href="#programs">Programs</a>
+        <a href="#facilities">Facilities</a>
+        <a href="#life">School Life</a>
+      </div>
+      <div class="footer-col">
+        <h4>Admissions</h4>
+        <a href="#admissions">Apply Now</a>
+        <a href="#contact">Enquiry</a>
+        <a href="#contact">Campus Tour</a>
+        <a href="#testimonials">Parent Reviews</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="#contact">📍 Campus Address</a>
+        <a href="tel:+000000000000">📞 +00 00000 00000</a>
+        <a href="mailto:info@momgrandridgeschool.com">✉️ info@momgrandridgeschool.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 M.O.M Grand Ridge School. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+
+  <script src="assets/vendor/three.min.js"></script>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
