@@ -344,6 +344,53 @@ main, .footer { position: relative; z-index: 2; }
 .about-points strong { display: block; font-size: 1.02rem; }
 .about-points span { color: var(--ink-dim); font-size: 0.92rem; }
 
+/* ══════════════ OUR LOGO, OUR PURPOSE ══════════════ */
+.purpose { padding-bottom: 40px; }
+.purpose-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px; margin-top: 46px;
+}
+.purpose-card {
+  background: var(--card); border: 1px solid var(--card-border);
+  border-radius: var(--radius); padding: 30px 22px; text-align: center;
+  backdrop-filter: blur(12px);
+  transition: transform 0.45s var(--ease-out), border-color 0.4s;
+}
+.purpose-card:hover { transform: translateY(-8px); border-color: rgba(255, 179, 36, 0.4); }
+.purpose-icon {
+  width: 62px; height: 62px; margin: 0 auto 16px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-size: 1.8rem;
+  transition: transform 0.5s var(--ease-out);
+}
+.purpose-card:hover .purpose-icon { transform: scale(1.15) rotate(-8deg); }
+.pu-sun    { background: linear-gradient(135deg, rgba(255,148,64,0.3),  rgba(255,148,64,0.08)); }
+.pu-pencil { background: linear-gradient(135deg, rgba(255,179,36,0.3),  rgba(255,179,36,0.08)); }
+.pu-pillar { background: linear-gradient(135deg, rgba(77,163,255,0.3),  rgba(77,163,255,0.08)); }
+.pu-book   { background: linear-gradient(135deg, rgba(139,123,255,0.3), rgba(139,123,255,0.08)); }
+.pu-leaf   { background: linear-gradient(135deg, rgba(79,216,103,0.3),  rgba(79,216,103,0.08)); }
+.purpose-card h3 { font-size: 1.05rem; margin-bottom: 2px; }
+.purpose-tag {
+  color: var(--yellow); font-size: 0.76rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px;
+}
+.purpose-card p:not(.purpose-tag) { color: var(--ink-dim); font-size: 0.86rem; }
+.purpose-promise {
+  text-align: center; margin-top: 40px; font-size: 1.05rem;
+  color: var(--ink-dim);
+}
+.purpose-promise strong { color: var(--yellow); }
+
+/* ══════════════ ACTIVITY NOTE ══════════════ */
+.activity-note {
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  margin-top: 26px; padding: 22px 28px;
+  background: var(--card); border: 1px dashed rgba(255, 179, 36, 0.4);
+  border-radius: var(--radius); backdrop-filter: blur(10px);
+}
+.activity-note span:first-child { font-size: 1.9rem; }
+.activity-note p { flex: 1; color: var(--ink-dim); min-width: 240px; }
+.activity-note p strong { color: var(--ink); }
+
 /* ══════════════ MESSAGES ══════════════ */
 .messages { padding-top: 0; padding-bottom: 20px; }
 .messages-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
