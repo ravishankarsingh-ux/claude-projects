@@ -230,9 +230,10 @@ main, .nav, .footer { position: relative; z-index: 1; }
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--spacing-36);
   margin-top: var(--spacing-60);
+  max-width: 860px;
 }
 
 .team-card { text-align: left; }
@@ -311,6 +312,43 @@ main, .nav, .footer { position: relative; z-index: 1; }
   text-transform: uppercase;
   letter-spacing: 0.35px;
 }
+
+/* ---------- Services ---------- */
+
+.two-col.align-top { align-items: start; }
+
+.service-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: var(--spacing-18) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.service-item:first-child { border-top: none; }
+
+.service-title {
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: -0.48px;
+  color: var(--color-bone-white);
+}
+
+.service-desc {
+  font-size: 15px;
+  font-weight: 200;
+  line-height: 1.5;
+  color: var(--color-silver-mist);
+}
+
+.contact-line {
+  margin-top: var(--spacing-24);
+  font-size: 14px;
+  font-weight: 200;
+  color: var(--color-ash-gray);
+}
+
+.contact-line a:hover { color: var(--color-bone-white); }
 
 /* ---------- CTA ---------- */
 
