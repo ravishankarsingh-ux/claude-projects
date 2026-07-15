@@ -29,6 +29,22 @@ no page builder), so it will just work on any standard WordPress install.
      (Field Trips, Hands-On Learning), leave it blank for plain photos.
 7. Set a permalink structure other than Plain under **Settings →
    Permalinks** if you want clean URLs for future WordPress Pages.
+8. **Set up the navigation menu** — on first activation the theme
+   auto-creates a "Primary Menu" under **Appearance → Menus** with all
+   8 links already in place (Home, About, Classes, Facilities, Gallery,
+   Parents, Contact, Admission), assigned to the Primary Navigation
+   location. Edit it there like any other WordPress menu — rename,
+   reorder, add, or remove links freely. The "Admission" item has the
+   `nav-cta` CSS class, which is what makes it render as the pill
+   button instead of a plain link — to move that button styling to a
+   different item, open **Screen Options** (top-right of the Menus
+   screen), enable "CSS Classes", then move the `nav-cta` class to
+   whichever item you want.
+9. **Set up the Full Gallery page** (optional) — create a new Page
+   (**Pages → Add New**), title it e.g. "Gallery", and under **Page
+   Attributes → Template** choose "Full Gallery", then publish it. The
+   home page's Gallery teaser section will automatically detect and
+   link to this page once it exists — no need to paste a URL anywhere.
 
 ### Seeding the Gallery from the existing photos
 
@@ -42,12 +58,25 @@ photo (e.g. `solar-system-model.jpeg`, `yoga-day.jpeg`).
 
 - **Custom Post Types** (add/remove/reorder from wp-admin, no code): Classes,
   Facilities, Testimonials, Gallery Photos.
-- **Theme Options** (12 tabs): Hero, Marquee, About, Logo Purpose, Messages,
-  Stats, Classes Intro, Facilities Intro, Testimonials Intro, Admissions CTA,
-  Contact, Footer.
+- **Theme Options** (13 tabs): Hero, Marquee, About, Logo Purpose, Messages,
+  Stats, Classes Intro, Facilities Intro, Gallery Intro, Testimonials Intro,
+  Admissions CTA, Contact, Footer.
 - **Core WordPress features**: site logo (Customizer), navigation menu
-  (Appearance → Menus, location "Primary Navigation" — falls back to a
-  hardcoded anchor menu if none is assigned).
+  (Appearance → Menus — auto-created and assigned on activation, see step 8
+  above; falls back to a hardcoded anchor menu only if the assignment is
+  ever removed).
+
+## The home page Gallery teaser vs. the Full Gallery page
+
+The home page's horizontal-scroll Gallery section only shows the first
+*N* photos (default 10, editable under **Theme Options → Gallery Intro
+→ "Photos shown on the home page"**), ordered the same way as the
+Gallery custom post type's Order field. If there are more photos than
+that limit, a "View Full Gallery →" link automatically appears next to
+the section heading, pointing at the Full Gallery page (see step 9
+above) — which lists every photo in a responsive grid, still opening
+in the same popup lightbox. If no Full Gallery page has been created
+yet, that link simply doesn't show.
 
 ## Known limitations (by design, given zero external dependencies)
 
@@ -70,14 +99,16 @@ This theme was built and verified in a sandboxed environment with no
 network access to wordpress.org and no MySQL/WordPress install available.
 What *was* verified here:
 
-- `php -l` (syntax check) on all 29 PHP files — zero errors.
+- `php -l` (syntax check) on all 32 PHP files — zero errors.
 - An offline stub harness (not included in this folder — it lived in the
   build environment only) that faked WordPress's core functions well
-  enough to actually `require` every file, fire every registered hook,
-  render the Theme Options page for all 12 tabs, render every custom
+  enough to actually `require` every file, fire every registered hook
+  (including `after_switch_theme`, to test the default-menu creation),
+  render the Theme Options page for all 13 tabs, render every custom
   post type's meta box, render the full front page through all 12
-  template-parts, and exercise the contact form handler's valid/invalid/
-  honeypot code paths — all with zero fatal errors.
+  template-parts, render the Full Gallery page template, and exercise
+  the contact form handler's valid/invalid/honeypot code paths — all
+  with zero fatal errors.
 
 **What this does *not* verify**: that WordPress itself accepts these
 files without conflicts, that the admin UI looks/behaves correctly, or

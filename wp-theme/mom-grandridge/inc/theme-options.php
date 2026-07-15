@@ -161,6 +161,16 @@ function mgs_option_tabs() {
 				'heading_accent' => array( 'label' => 'Heading (accent)', 'type' => 'text', 'default' => 'Big Imaginations' ),
 			),
 		),
+		'gallery'      => array(
+			'label'  => __( 'Gallery Intro', 'mom-grandridge' ),
+			'fields' => array(
+				'eyebrow'         => array( 'label' => 'Eyebrow', 'type' => 'text', 'default' => '— Life at Mom Grandridge' ),
+				'heading_plain'   => array( 'label' => 'Heading (plain)', 'type' => 'text', 'default' => 'Every Day is an' ),
+				'heading_accent'  => array( 'label' => 'Heading (accent)', 'type' => 'text', 'default' => 'Adventure' ),
+				'home_limit'      => array( 'label' => 'Photos shown on the home page', 'type' => 'number', 'default' => 10, 'desc' => 'The rest only appear on the full Gallery page.' ),
+				'view_all_label'  => array( 'label' => 'View-all button label', 'type' => 'text', 'default' => 'View Full Gallery →' ),
+			),
+		),
 		'testimonials' => array(
 			'label'  => __( 'Testimonials Intro', 'mom-grandridge' ),
 			'fields' => array(

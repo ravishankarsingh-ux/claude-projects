@@ -97,6 +97,25 @@ function mgs_render_logo() {
 }
 
 /**
+ * Find the URL of whichever WordPress Page is using the "Full Gallery"
+ * page template, so the home page's teaser section can link to it
+ * without the admin needing to paste a URL anywhere.
+ */
+function mgs_get_gallery_page_url() {
+	$pages = get_posts(
+		array(
+			'post_type'      => 'page',
+			'post_status'    => 'publish',
+			'posts_per_page' => 1,
+			'meta_key'       => '_wp_page_template',
+			'meta_value'     => 'page-gallery.php',
+			'fields'         => 'ids',
+		)
+	);
+	return $pages ? get_permalink( $pages[0] ) : '#';
+}
+
+/**
  * Split a textarea option (one item per line) into a clean array —
  * used for the Marquee tab.
  */

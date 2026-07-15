@@ -372,11 +372,15 @@
   }
   if (!prefersReducedMotion) restart();
 
-  /* ══════════════ LIGHTBOX (Gallery section photos only) ══════════════ */
+  /* ══════════════ LIGHTBOX (gallery photos only) ══════════════
+     .life-photo is used exclusively by gallery photos — on the home
+     page's teaser strip (#life) and on the standalone Full Gallery
+     page template — so a plain global selector safely covers both
+     without ever picking up unrelated images like the About banner. */
   var lightbox = document.getElementById("lightbox");
   var lightboxImg = document.getElementById("lightboxImg");
   var lbItems = Array.prototype.slice.call(
-    document.querySelectorAll("#life .life-photo")
+    document.querySelectorAll(".life-photo")
   );
   var lbIndex = 0;
 

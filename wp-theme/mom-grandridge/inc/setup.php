@@ -74,14 +74,14 @@ function mgs_nav_menu() {
 	if ( has_nav_menu( 'primary' ) ) {
 		wp_nav_menu(
 			array(
-				'theme_location' => 'primary',
-				'container'      => 'div',
-				'container_id'   => 'navLinks',
-				'container_class' => 'nav-links',
-				'menu_class'     => '',
-				'items_wrap'     => '%3$s',
-				'link_before'    => '',
-				'walker'         => new MGS_Nav_Walker(),
+				'theme_location'   => 'primary',
+				'container'        => 'div',
+				'container_id'     => 'navLinks',
+				'container_class'  => 'nav-links',
+				'menu_class'       => '',
+				'items_wrap'       => '%3$s',
+				'link_before'      => '',
+				'walker'           => new MGS_Nav_Walker(),
 			)
 		);
 	} else {
@@ -90,11 +90,25 @@ function mgs_nav_menu() {
 }
 
 /**
- * Minimal walker so menu items render as flat <a class="nav-link"> links,
- * matching the existing markup/CSS exactly (no <ul><li> wrapper).
+ * Minimal walker so menu items render as flat <a> links, matching the
+ * existing markup/CSS exactly (no <ul><li> wrapper). Whichever menu item
+ * has the CSS class "nav-cta" (set via Appearance > Menus > Screen
+ * Options > CSS Classes) renders as the pill-button style instead of a
+ * plain nav link — by default that's the "Admission" item, but the
+ * client can move that styling to any item just by adding/removing the
+ * class in the menu editor.
  */
 class MGS_Nav_Walker extends Walker_Nav_Menu {
 	public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
+		if ( in_array( 'nav-cta', $item->classes, true ) ) {
+			$output .= sprintf(
+				'<a href="%1$s" class="nav-cta">%2$s</a>',
+				esc_url( $item->url ),
+				esc_html( $item->title )
+			);
+			return;
+		}
+
 		$classes = array( 'nav-link' );
 		if ( in_array( 'current-menu-item', $item->classes, true ) ) {
 			$classes[] = 'active';
@@ -110,3 +124,54 @@ class MGS_Nav_Walker extends Walker_Nav_Menu {
 	public function start_lvl( &$output, $depth = 0, $args = null ) {}
 	public function end_lvl( &$output, $depth = 0, $args = null ) {}
 }
+
+/**
+ * Auto-create and assign a starter Primary Navigation menu on theme
+ * activation, pre-populated with the site's anchor links, so the client
+ * lands on a real, immediately-editable menu in Appearance > Menus
+ * instead of an empty location they'd have to build from scratch.
+ * Never overwrites a menu that's already assigned.
+ */
+function mgs_create_default_menu() {
+	$locations = get_theme_mod( 'nav_menu_locations' );
+	if ( ! empty( $locations['primary'] ) ) {
+		return;
+	}
+
+	$menu_name = __( 'Primary Menu', 'mom-grandridge' );
+	$existing  = get_term_by( 'name', $menu_name, 'nav_menu' );
+	$menu_id   = $existing ? $existing->term_id : wp_create_nav_menu( $menu_name );
+
+	if ( is_wp_error( $menu_id ) || ! $menu_id ) {
+		return;
+	}
+
+	$items = array(
+		array( 'title' => __( 'Home', 'mom-grandridge' ), 'url' => home_url( '/#home' ) ),
+		array( 'title' => __( 'About', 'mom-grandridge' ), 'url' => home_url( '/#about' ) ),
+		array( 'title' => __( 'Classes', 'mom-grandridge' ), 'url' => home_url( '/#programs' ) ),
+		array( 'title' => __( 'Facilities', 'mom-grandridge' ), 'url' => home_url( '/#facilities' ) ),
+		array( 'title' => __( 'Gallery', 'mom-grandridge' ), 'url' => home_url( '/#life' ) ),
+		array( 'title' => __( 'Parents', 'mom-grandridge' ), 'url' => home_url( '/#testimonials' ) ),
+		array( 'title' => __( 'Contact', 'mom-grandridge' ), 'url' => home_url( '/#contact' ) ),
+		array( 'title' => __( 'Admission', 'mom-grandridge' ), 'url' => home_url( '/#admissions' ), 'classes' => 'nav-cta' ),
+	);
+
+	foreach ( $items as $i => $item ) {
+		wp_update_nav_menu_item(
+			$menu_id,
+			0,
+			array(
+				'menu-item-title'      => $item['title'],
+				'menu-item-url'        => $item['url'],
+				'menu-item-classes'    => isset( $item['classes'] ) ? $item['classes'] : '',
+				'menu-item-status'     => 'publish',
+				'menu-item-position'   => $i + 1,
+			)
+		);
+	}
+
+	$locations['primary'] = $menu_id;
+	set_theme_mod( 'nav_menu_locations', $locations );
+}
+add_action( 'after_switch_theme', 'mgs_create_default_menu' );
