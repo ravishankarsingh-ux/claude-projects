@@ -22,21 +22,3 @@ function mgs_enqueue_assets() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'mgs_enqueue_assets' );
-
-/**
- * Load the media-uploader JS only on our Theme Options admin screen.
- */
-function mgs_admin_enqueue_assets( $hook ) {
-	if ( 'toplevel_page_mgs-theme-options' !== $hook ) {
-		return;
-	}
-	wp_enqueue_media();
-	wp_enqueue_script(
-		'mgs-admin-options',
-		MGS_THEME_URI . '/assets/js/admin-options.js',
-		array( 'jquery' ),
-		MGS_THEME_VERSION,
-		true
-	);
-}
-add_action( 'admin_enqueue_scripts', 'mgs_admin_enqueue_assets' );

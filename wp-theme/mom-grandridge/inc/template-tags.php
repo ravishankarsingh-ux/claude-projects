@@ -8,22 +8,72 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Read one field from a Theme Options tab.
+ * Read one field's value, from whichever context we're rendering in:
  *
- * Each tab is stored as its own option (e.g. "mgs_opt_hero") holding an
- * associative array, so saving one tab never touches another tab's data.
+ *   - Inside an active ACF Flexible Content row (a section block on
+ *     some other page, via page-flexible.php): reads the row's own
+ *     unprefixed sub-field. get_row_layout() only returns a (truthy)
+ *     layout name while such a loop is actively iterating.
+ *   - Everywhere else (the Home page, or a context with no current
+ *     post at all — e.g. the contact-form admin-post.php handler):
+ *     reads the prefixed "{group}_{key}" field from the Home page.
  *
- * @param string $group   Tab name, e.g. "hero", "about", "contact".
- * @param string $key     Field key within that tab.
- * @param mixed  $default Fallback value if unset.
+ * Either way, an empty/missing value falls back to the section's
+ * central default (see acf-field-defs.php's mgs_field_default()) — so
+ * the site never renders blank content, even before Secure Custom
+ * Fields is installed or before any field has been edited.
+ *
+ * @param string $group   Section slug, e.g. "hero", "about", "contact".
+ * @param string $key     Field key within that section.
+ * @param mixed  $default Last-resort fallback if there's no default_value either.
  */
-function mgs_opt( $group, $key, $default = '' ) {
-	$all = get_option( 'mgs_opt_' . $group, array() );
-	if ( ! is_array( $all ) || ! isset( $all[ $key ] ) || '' === $all[ $key ] ) {
+function mgs_opt( $group, $key, $default = null ) {
+	$in_row = function_exists( 'get_row_layout' ) && get_row_layout();
+
+	if ( $in_row ) {
+		$value = function_exists( 'get_sub_field' ) ? get_sub_field( $key ) : null;
+	} else {
+		$home_id = mgs_get_home_page_id();
+		$value   = ( $home_id && function_exists( 'get_field' ) ) ? get_field( "{$group}_{$key}", $home_id ) : null;
+	}
+
+	if ( null === $value || '' === $value || false === $value ) {
+		$value = mgs_field_default( $group, $key );
+	}
+
+	if ( '' === $value && null !== $default ) {
 		return $default;
 	}
-	return $all[ $key ];
+
+	return $value;
 }
+
+/**
+ * The Home page's post ID, per Settings > Reading's static front page.
+ * Returns 0 if no static front page has been configured yet.
+ */
+function mgs_get_home_page_id() {
+	return (int) get_option( 'page_on_front' );
+}
+
+/**
+ * Nudge the site owner if there's nowhere for the Home page's field
+ * groups to attach to — ACF's "front_page" location rule can't match
+ * without a static front page configured.
+ */
+function mgs_maybe_notice_no_front_page() {
+	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+	if ( mgs_get_home_page_id() ) {
+		return;
+	}
+	printf(
+		'<div class="notice notice-warning"><p>%s</p></div>',
+		esc_html__( 'Mom Grandridge School: no static front page is set. Go to Settings → Reading and choose a page as your homepage so the Hero/About/… fields appear on its edit screen.', 'mom-grandridge' )
+	);
+}
+add_action( 'admin_notices', 'mgs_maybe_notice_no_front_page' );
 
 /**
  * Echo an option value already escaped for HTML text content.
@@ -121,7 +171,7 @@ function mgs_get_gallery_page_url() {
  */
 function mgs_opt_lines( $group, $key, $default_lines = array() ) {
 	$raw = mgs_opt( $group, $key, '' );
-	if ( '' === $raw ) {
+	if ( ! is_string( $raw ) || '' === $raw ) {
 		return $default_lines;
 	}
 	$lines = preg_split( '/\r\n|\r|\n/', $raw );
