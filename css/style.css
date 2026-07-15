@@ -526,12 +526,6 @@ main, .footer { position: relative; z-index: 2; }
 .life-card::before {
   content: ""; position: absolute; inset: 0; opacity: 0.9; z-index: -1;
 }
-.lc-1 { background: linear-gradient(160deg, rgba(255,148,64,0.32), rgba(255,148,64,0.06)); }
-.lc-2 { background: linear-gradient(160deg, rgba(77,163,255,0.32), rgba(77,163,255,0.06)); }
-.lc-3 { background: linear-gradient(160deg, rgba(255,179,36,0.32), rgba(255,179,36,0.06)); }
-.lc-4 { background: linear-gradient(160deg, rgba(79,216,103,0.32), rgba(79,216,103,0.06)); }
-.lc-5 { background: linear-gradient(160deg, rgba(139,123,255,0.32), rgba(139,123,255,0.06)); }
-.lc-6 { background: linear-gradient(160deg, rgba(255,140,220,0.32), rgba(255,140,220,0.06)); }
 .life-card-photo {
   padding: 14px 14px 26px;
   background: linear-gradient(160deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03));
@@ -542,7 +536,6 @@ main, .footer { position: relative; z-index: 2; }
   width: 100%; height: 240px; object-fit: cover;
   border-radius: 18px; margin-bottom: 18px; display: block;
 }
-.life-emoji { font-size: 3.4rem; display: block; margin-bottom: 20px; filter: drop-shadow(0 12px 22px rgba(0,0,0,0.4)); }
 .life-card h3 { font-size: 1.3rem; margin-bottom: 8px; }
 .life-card p { color: var(--ink-dim); font-size: 0.92rem; }
 
