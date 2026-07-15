@@ -722,10 +722,17 @@ main, .footer { position: relative; z-index: 2; }
 }
 
 /* Gallery cards built from assets/gallery (js/gallery.js manifest) */
-.life-card-gallery { padding: 0; overflow: hidden; }
+.life-card-gallery { padding: 0; overflow: hidden; position: relative; }
 .life-card-gallery .life-photo {
   height: 100%; min-height: 380px; margin: 0; border-radius: 26px;
   object-fit: cover; width: 100%;
+}
+.life-caption {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+  padding: 34px 20px 16px;
+  background: linear-gradient(to top, rgba(4, 6, 14, 0.88), transparent);
+  color: var(--ink); font-weight: 700; font-size: 0.95rem;
+  pointer-events: none;
 }
 
 /* ══════════════ REVEAL (JS-driven baseline) ══════════════ */

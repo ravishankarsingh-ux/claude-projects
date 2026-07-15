@@ -250,16 +250,24 @@
   /* Runs before the horizontal-scroll trigger is created so the track
      width is measured with all cards in place. */
   var galleryTrack = document.getElementById("lifeTrack");
-  (window.GALLERY_IMAGES || []).forEach(function (name) {
+  (window.GALLERY_IMAGES || []).forEach(function (entry) {
+    var file = typeof entry === "string" ? entry : entry.file;
+    var title = typeof entry === "string" ? "" : (entry.title || "");
     var card = document.createElement("div");
     card.className = "life-card life-card-photo life-card-gallery";
     var img = document.createElement("img");
     img.className = "life-photo";
-    img.src = "assets/gallery/" + name;
-    img.alt = "Mom Grandridge School gallery photo";
+    img.src = "assets/gallery/" + file;
+    img.alt = title ? title + " — Mom Grandridge School" : "Mom Grandridge School gallery photo";
     img.loading = "lazy";
     img.onerror = function () { card.style.display = "none"; };
     card.appendChild(img);
+    if (title) {
+      var caption = document.createElement("span");
+      caption.className = "life-caption";
+      caption.textContent = title;
+      card.appendChild(caption);
+    }
     galleryTrack.appendChild(card);
   });
 
