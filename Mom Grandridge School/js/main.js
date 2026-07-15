@@ -386,11 +386,11 @@
   }
   if (!prefersReducedMotion) restart();
 
-  /* ══════════════ LIGHTBOX ══════════════ */
+  /* ══════════════ LIGHTBOX (Gallery section photos only) ══════════════ */
   var lightbox = document.getElementById("lightbox");
   var lightboxImg = document.getElementById("lightboxImg");
   var lbItems = Array.prototype.slice.call(
-    document.querySelectorAll(".life-photo, .about-photo, .section-poster, .cta-poster")
+    document.querySelectorAll("#life .life-photo")
   );
   var lbIndex = 0;
 

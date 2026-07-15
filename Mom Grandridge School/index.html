@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mom Grandridge School — Life. Line. Knowledge. | Nurturing Minds. Building Futures.</title>
+  <meta name="description" content="Mom Grandridge School, Serlingampally, Hyderabad — a safe, nurturing campus offering quality education from Daycare to Grade 7. Admissions open for 2026–27." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ══════════════ PRELOADER ══════════════ -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">🎓</div>
+      <div class="preloader-text">MOM GRANDRIDGE SCHOOL</div>
+      <div class="preloader-bar"><span id="preloaderBar"></span></div>
+      <div class="preloader-pct" id="preloaderPct">0%</div>
+    </div>
+  </div>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Custom cursor glow (desktop only) -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- ══════════════ THREE.JS 3D BACKGROUND ══════════════ -->
+  <canvas id="bg3d"></canvas>
+
+  <!-- ══════════════ NAVBAR ══════════════ -->
+  <header class="nav" id="nav">
+    <a href="#home" class="nav-logo">
+      <img src="assets/Logo.jpeg" alt="Mom Grandridge School logo" class="nav-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline'" />
+      <span class="nav-logo-icon" style="display:none">🎓</span>
+      <span class="nav-logo-text">Mom <em>Grandridge</em> School</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#programs" class="nav-link">Classes</a>
+      <a href="#facilities" class="nav-link">Facilities</a>
+      <a href="#life" class="nav-link">Gallery</a>
+      <a href="#testimonials" class="nav-link">Parents</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <a href="#admissions" class="nav-cta">Admission</a>
+    </nav>
+    <button class="nav-burger" id="navBurger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- ══════════════ HERO ══════════════ -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="hero-badge reveal-hero">✨ Admission Open — Academic Year 2026–27</div>
+        <h1 class="hero-title">
+          <span class="line"><span>Nurturing</span>&nbsp;<span class="grad-1">Minds.</span></span>
+          <span class="line"><span>Building</span>&nbsp;<span class="grad-2">Futures.</span></span>
+        </h1>
+        <p class="hero-sub reveal-hero">
+          <strong>Life. Line. Knowledge.</strong> — Mom Grandridge School is a safe, joyful
+          learning community in Serlingampally, Hyderabad, where every child is valued,
+          nurtured and inspired to succeed — from Daycare to Grade 7.
+        </p>
+        <div class="hero-actions reveal-hero">
+          <a href="#admissions" class="btn btn-primary"><span>Enroll Now</span> <i>→</i></a>
+          <a href="#about" class="btn btn-ghost"><span>Explore the School</span></a>
+        </div>
+        <div class="hero-chips reveal-hero">
+          <div class="chip float-1">👶 Daycare to Grade 7</div>
+          <div class="chip float-2">🏊 Splash Pool</div>
+          <div class="chip float-3">🎨 Art & Craft Workshops</div>
+          <div class="chip float-1">🚌 Safe Transport</div>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <div class="mouse"><span></span></div>
+        <p>Learn · Grow · Succeed</p>
+      </div>
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+    </section>
+
+    <!-- ══════════════ MARQUEE ══════════════ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>🎓 Admission Open 2026–27</span><span>✦</span>
+        <span>Life · Line · Knowledge</span><span>✦</span>
+        <span>Quality Education</span><span>✦</span>
+        <span>Character Building</span><span>✦</span>
+        <span>Holistic Development</span><span>✦</span>
+        <span>Values & Discipline</span><span>✦</span>
+        <span>Your Future. Our Mission.</span><span>✦</span>
+        <span>🎓 Admission Open 2026–27</span><span>✦</span>
+        <span>Life · Line · Knowledge</span><span>✦</span>
+        <span>Quality Education</span><span>✦</span>
+        <span>Character Building</span><span>✦</span>
+        <span>Holistic Development</span><span>✦</span>
+        <span>Values & Discipline</span><span>✦</span>
+        <span>Your Future. Our Mission.</span><span>✦</span>
+      </div>
+    </div>
+
+    <!-- ══════════════ ABOUT ══════════════ -->
+    <section class="section about" id="about">
+      <div class="container split">
+        <div class="about-visual" data-tilt>
+          <div class="about-card-main">
+            <img width="1600" height="800" src="assets/WhatsApp-Image-2026-06-15-at-2.00.26-PM-1.jpeg" alt="Students of Mom Grandridge School" class="about-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
+            <div class="about-emoji" style="display:none">🏫</div>
+            <div class="about-card-shine"></div>
+          </div>
+          <div class="about-card-float about-card-a" data-speed="0.4">🏊 Splash Pool</div>
+          <div class="about-card-float about-card-b" data-speed="-0.3">🎨 Art & Craft</div>
+          <div class="about-card-float about-card-c" data-speed="0.6">🚌 Safe Transport</div>
+          <div class="orbit-ring"></div>
+        </div>
+        <div class="about-copy">
+          <p class="eyebrow reveal">— Welcome to Mom Grandridge School</p>
+          <h2 class="section-title reveal">Where Every Child is <span class="grad-1">Valued, Nurtured & Inspired</span></h2>
+          <p class="reveal">
+            Our vision is simple: to inspire excellence, foster creativity and cultivate
+            young artists. We believe learning is a lifelong journey — so we encourage our
+            students to think deeply through practical experiments and to learn from their
+            mistakes. Through a rich mix of academics, sports and arts, every student
+            builds the confidence to make a meaningful impact on the world.
+          </p>
+          <ul class="about-points">
+            <li class="reveal"><i>📖</i><div><strong>Quality Education</strong><span>Strong academics with a good student–teacher ratio and personal attention for every learner.</span></div></li>
+            <li class="reveal"><i>💡</i><div><strong>Character Building</strong><span>Values and discipline woven into everyday school life.</span></div></li>
+            <li class="reveal"><i>🌱</i><div><strong>Holistic Development</strong><span>Sports, arts and life skills growing alongside studies.</span></div></li>
+          </ul>
+          <blockquote class="principal-note reveal">
+            <p>"With passion, dedication and a heart full of care, we create a safe and
+            nurturing environment where every child grows, learns and shines."</p>
+            <footer><strong>Shaik Ruksana</strong> — Principal · 15+ years of experience in child care</footer>
+          </blockquote>
+          <a href="#programs" class="btn btn-primary reveal"><span>See Our Classes</span> <i>→</i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ OUR LOGO, OUR PURPOSE ══════════════ -->
+    <section class="section purpose" id="purpose">
+      <div class="container">
+        <p class="eyebrow center reveal">— Our Logo. Our Purpose.</p>
+        <h2 class="section-title center reveal">More Than a Symbol — <span class="grad-1">A Promise</span></h2>
+        <p class="section-sub center reveal">Every element of our logo represents our commitment to nurturing minds and building a better tomorrow.</p>
+        <div class="purpose-grid">
+          <div class="purpose-card reveal"><div class="purpose-icon pu-sun">🌞</div><h3>The Sun</h3><p class="purpose-tag">Hope & Inspiration</p><p>The rising sun represents new beginnings, positivity and the endless possibilities that education brings.</p></div>
+          <div class="purpose-card reveal"><div class="purpose-icon pu-pencil">✏️</div><h3>The Pencil</h3><p class="purpose-tag">Learning & Growth</p><p>The pencil stands for the power of learning, creativity and the tools we give our students to shape their future.</p></div>
+          <div class="purpose-card reveal"><div class="purpose-icon pu-pillar">🏛️</div><h3>The Pillars</h3><p class="purpose-tag">Strength & Values</p><p>The pillars symbolise strong values, discipline and the solid foundation we build in every child for a confident tomorrow.</p></div>
+          <div class="purpose-card reveal"><div class="purpose-icon pu-book">📖</div><h3>The Open Book</h3><p class="purpose-tag">Knowledge & Wisdom</p><p>The open book reflects knowledge without limits, curiosity and the joy of discovering, growing and learning for life.</p></div>
+          <div class="purpose-card reveal"><div class="purpose-icon pu-leaf">🌿</div><h3>The Leaves</h3><p class="purpose-tag">Nurturing & Care</p><p>The leaves show our nurturing environment where every child is cared for, encouraged and supported to bloom.</p></div>
+        </div>
+        <p class="purpose-promise reveal">⭐ Our logo is more than a symbol — <strong>it is our promise to every child and every parent.</strong> ⭐</p>
+        <img class="section-poster reveal" width="1536" height="1024" src="assets/WhatsApp-Image-2026-06-15-at-2.00.26-PM.jpeg" alt="Our Logo, Our Purpose — the meaning behind the Mom Grandridge School logo" loading="lazy" onerror="this.style.display='none'" />
+      </div>
+    </section>
+
+    <!-- ══════════════ MESSAGES ══════════════ -->
+    <section class="section messages" id="messages">
+      <div class="container">
+        <div class="messages-grid">
+          <div class="message-card reveal" data-tilt>
+            <div class="facility-icon">👨‍👩‍👧</div>
+            <h3>Message to Our Parents</h3>
+            <p>Your collaboration is our greatest strength. Let us work hand-in-hand to
+            build a bright future for our children.</p>
+          </div>
+          <div class="message-card reveal" data-tilt>
+            <div class="facility-icon">🧒</div>
+            <h3>Message to Our Students</h3>
+            <p>Dream big and work hard. Think deeply, experiment boldly and learn from
+            every mistake — your future is our mission.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ STATS ══════════════ -->
+    <section class="section stats" id="stats">
+      <div class="container">
+        <div class="stats-grid">
+          <!-- TODO: Students & teachers counts estimated — confirm real numbers with the school -->
+          <div class="stat-card reveal" data-tilt><div class="stat-num"><span class="counter" data-target="500">0</span>+</div><p>Happy Students</p><div class="stat-icon">🧒</div></div>
+          <div class="stat-card reveal" data-tilt><div class="stat-num"><span class="counter" data-target="8">0</span>+</div><p>Years of Establishment</p><div class="stat-icon">🎖️</div></div>
+          <div class="stat-card reveal" data-tilt><div class="stat-num"><span class="counter" data-target="12">0</span></div><p>Class Levels — Daycare to Grade 7</p><div class="stat-icon">🏫</div></div>
+          <div class="stat-card reveal" data-tilt><div class="stat-num"><span class="counter" data-target="30">0</span>+</div><p>Qualified Teachers</p><div class="stat-icon">👩‍🏫</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ CLASSES / PROGRAMS ══════════════ -->
+    <section class="section programs" id="programs">
+      <div class="container">
+        <p class="eyebrow center reveal">— Classes Available</p>
+        <h2 class="section-title center reveal">Strong Foundation Today, <span class="grad-2">Bright Future Tomorrow</span></h2>
+        <p class="section-sub center reveal">A seamless learning path from daycare age all the way to Grade 7.</p>
+        <div class="programs-grid">
+          <article class="program-card reveal" data-tilt>
+            <div class="program-icon pi-1">🍼</div>
+            <h3>Daycare</h3>
+            <p class="program-age">From 6 Months</p>
+            <p>Safe, loving and reliable day care with trained caregivers, hassle-free timings and a hygienic, child-proof space.</p>
+            <a href="#admissions" class="program-link">Enroll now →</a>
+          </article>
+          <article class="program-card reveal" data-tilt>
+            <div class="program-icon pi-2">🧸</div>
+            <h3>Pre-Primary</h3>
+            <p class="program-age">Playgroup · Nursery · PP1 · PP2</p>
+            <p>Colourful classrooms and play-based learning that build language, motor skills and a lifelong love of discovery.</p>
+            <a href="#admissions" class="program-link">Enroll now →</a>
+          </article>
+          <article class="program-card reveal" data-tilt>
+            <div class="program-icon pi-3">📖</div>
+            <h3>Primary School</h3>
+            <p class="program-age">Grades 1 – 5</p>
+            <p>Strong foundations in literacy, numeracy and science, enriched with art, craft, games and hands-on experiments.</p>
+            <a href="#admissions" class="program-link">Enroll now →</a>
+          </article>
+          <article class="program-card reveal" data-tilt>
+            <div class="program-icon pi-4">🔬</div>
+            <h3>Middle School</h3>
+            <p class="program-age">Grades 6 – 7</p>
+            <p>Inquiry-driven academics in our mind room, with practical experiments and technology that turn curiosity into confidence.</p>
+            <a href="#admissions" class="program-link">Enroll now →</a>
+          </article>
+        </div>
+        <div class="activity-note reveal">
+          <span>🎭</span>
+          <p><strong>Plus: Activity Classes</strong> — skill-building and hobby sessions beyond the regular curriculum, for every age group.</p>
+          <a href="#contact" class="program-link">Ask us →</a>
+        </div>
+        <img class="section-poster reveal" width="1280" height="853" src="assets/WhatsApp-Image-2026-06-15-at-2.00.28-PM.jpeg" alt="Our Classes at Mom Grandridge School — Day care, Play group, Nursery, PP1, PP2, Grade 1 to 7 and Activity classes" loading="lazy" onerror="this.style.display='none'" />
+      </div>
+    </section>
+
+    <!-- ══════════════ FACILITIES ══════════════ -->
+    <section class="section facilities" id="facilities">
+      <div class="container">
+        <p class="eyebrow center reveal">— Our Salient Features</p>
+        <h2 class="section-title center reveal">Built for <span class="grad-1">Big Imaginations</span></h2>
+        <div class="facilities-grid">
+          <div class="facility reveal"><div class="facility-icon">🧑‍🏫</div><h3>Good Student–Teacher Ratio</h3><p>Personalised attention to assure the overall development of every child.</p></div>
+          <div class="facility reveal"><div class="facility-icon">🎨</div><h3>Colourful Classrooms</h3><p>Vibrant and engaging classrooms that inspire creativity and joy in learning.</p></div>
+          <div class="facility reveal"><div class="facility-icon">📽️</div><h3>Mind Room with LCD Projector</h3><p>Smart learning with modern technology for better understanding.</p></div>
+          <div class="facility reveal"><div class="facility-icon">🏊</div><h3>Swimming / Splash Pool</h3><p>Safe and fun water activities for health and confidence.</p></div>
+          <div class="facility reveal"><div class="facility-icon">✂️</div><h3>Art & Craft Workshops</h3><p>Nurturing creativity and imagination through hands-on activities.</p></div>
+          <div class="facility reveal"><div class="facility-icon">⚽</div><h3>Indoor & Outdoor Games</h3><p>Encouraging physical fitness, teamwork and active play.</p></div>
+          <div class="facility reveal"><div class="facility-icon">🕗</div><h3>Day Care Facility</h3><p>Safe, caring and convenient timings for working parents.</p></div>
+          <div class="facility reveal"><div class="facility-icon">🚌</div><h3>Transport Facility</h3><p>Safe and reliable transport for hassle-free travel.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ SCHOOL LIFE / GALLERY — HORIZONTAL SCROLL ══════════════ -->
+    <section class="life" id="life">
+      <div class="life-pin">
+        <div class="life-head">
+          <p class="eyebrow center">— Life at Mom Grandridge</p>
+          <h2 class="section-title center">Every Day is an <span class="grad-2">Adventure</span></h2>
+        </div>
+        <div class="life-track" id="lifeTrack">
+          <div class="life-card life-card-photo"><img class="life-photo" src="assets/gallery/field-trip.jpeg" alt="Mom Grandridge students on a field trip to a village bazar" loading="lazy" onerror="this.closest('.life-card').style.display='none'" /><h3>Field Trips</h3><p>Learning that travels beyond walls.</p></div>
+          <div class="life-card life-card-photo"><img class="life-photo" src="assets/gallery/hands-on-learning.jpeg" alt="Hands-on maths activity in a Mom Grandridge classroom" loading="lazy" onerror="this.closest('.life-card').style.display='none'" /><h3>Hands-On Learning</h3><p>Practical experiments make concepts stick.</p></div>
+          <div class="life-card lc-1"><span class="life-emoji">🎪</span><h3>Annual Day</h3><p>A grand stage where every child shines.</p></div>
+          <div class="life-card lc-2"><span class="life-emoji">🏊</span><h3>Splash Pool Fun</h3><p>Cool, safe water play all year round.</p></div>
+          <div class="life-card lc-3"><span class="life-emoji">🏅</span><h3>Sports & Games</h3><p>Teamwork, grit and glorious victories.</p></div>
+          <div class="life-card lc-5"><span class="life-emoji">🎨</span><h3>Art Carnival</h3><p>Colour, craft and boundless creativity.</p></div>
+          <div class="life-card lc-6"><span class="life-emoji">🎉</span><h3>Celebrations</h3><p>Festivals that bring us all together.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ TESTIMONIALS ══════════════ -->
+    <section class="section testimonials" id="testimonials">
+      <div class="container">
+        <p class="eyebrow center reveal">— What Parents Say</p>
+        <h2 class="section-title center reveal">Loved by <span class="grad-1">Families</span></h2>
+        <div class="testi-slider reveal" id="testiSlider">
+          <div class="testi-slide active">
+            <div class="testi-stars">★★★★★</div>
+            <p>"Education-wise excellent — kids can deal easily with studies, overcome fear, and show real improvement in communication skills."</p>
+            <div class="testi-author"><span class="testi-avatar">👩</span><div><strong>Aadhya Sri</strong><span>Parent</span></div></div>
+          </div>
+          <!-- TODO: Slides below are placeholders — replace with more real parent reviews -->
+          <div class="testi-slide">
+            <div class="testi-stars">★★★★★</div>
+            <p>"The teachers genuinely care about each child. The colourful classrooms and daily activities make my daughter run to school every morning."</p>
+            <div class="testi-author"><span class="testi-avatar">👨</span><div><strong>A Happy Parent</strong><span>Pre-Primary Parent</span></div></div>
+          </div>
+          <div class="testi-slide">
+            <div class="testi-stars">★★★★★</div>
+            <p>"Safe transport, caring day care and a wonderful balance of studies, sports and art. Our son's confidence has grown tremendously."</p>
+            <div class="testi-author"><span class="testi-avatar">👩‍🦰</span><div><strong>A Grateful Parent</strong><span>Primary Parent</span></div></div>
+          </div>
+          <div class="testi-dots" id="testiDots"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ ADMISSIONS CTA ══════════════ -->
+    <section class="section admissions" id="admissions">
+      <div class="container">
+        <div class="cta-panel reveal" data-tilt>
+          <div class="cta-shapes"><span></span><span></span><span></span><span></span></div>
+          <h2>Admission Open — <span class="grad-3">Academic Year 2026–27</span></h2>
+          <p>Where every child is valued, nurtured and inspired to succeed. Classes available
+          from Daycare (6 months) to Grade 7 — limited seats available. Enroll now!</p>
+          <div class="cta-actions">
+            <a href="#contact" class="btn btn-light"><span>Enroll Now</span> <i>→</i></a>
+            <a href="tel:+919640737373" class="btn btn-outline"><span>📞 +91 96407 37373</span></a>
+          </div>
+          <img class="cta-poster" width="1536" height="1024" src="assets/WhatsApp-Image-2026-06-15-at-2.00.25-PM.jpeg" alt="Admission Open poster — salient features, classes from daycare age to Grade 7, enroll now" loading="lazy" onerror="this.style.display='none'" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ CONTACT ══════════════ -->
+    <section class="section contact" id="contact">
+      <div class="container split">
+        <div class="contact-info">
+          <p class="eyebrow reveal">— Get in Touch</p>
+          <h2 class="section-title reveal">Send Us a <span class="grad-2">Message</span></h2>
+          <div class="contact-cards">
+            <div class="contact-card reveal"><i>📍</i><div><strong>Office</strong><span>No. 2-38/2, Plot No.2, Tara Nagar,<br/>S2 Circle, Serlingampally, Hyderabad - 19</span></div></div>
+            <div class="contact-card reveal"><i>📞</i><div><strong>Contact</strong><span>+91 96407 37373</span></div></div>
+            <div class="contact-card reveal"><i>✉️</i><div><strong>Email</strong><span>admin@momgrandridgeschool.com</span></div></div>
+            <div class="contact-card reveal"><i>🕗</i><div><strong>Open Hours</strong><span>Monday – Saturday, 8 AM – 6 PM</span></div></div>
+          </div>
+        </div>
+        <form class="contact-form reveal" data-tilt onsubmit="return false;">
+          <h3>Admission Enquiry</h3>
+          <div class="form-row">
+            <input type="text" placeholder="Parent's Name" required />
+            <input type="tel" placeholder="Phone Number" required />
+          </div>
+          <input type="email" placeholder="Email Address" required />
+          <select required>
+            <option value="" disabled selected>Class Applying For</option>
+            <option>Daycare (from 6 months)</option>
+            <option>Playgroup / Nursery</option>
+            <option>PP1 / PP2 (LKG / UKG)</option>
+            <option>Grades 1–5</option>
+            <option>Grades 6–7</option>
+            <option>Activity Classes</option>
+          </select>
+          <textarea rows="4" placeholder="Your Message"></textarea>
+          <button type="submit" class="btn btn-primary btn-block"><span>Send Message</span> <i>→</i></button>
+          <p class="form-note">We usually respond within one working day.</p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="nav-logo"><img src="assets/Logo.jpeg" alt="Mom Grandridge School logo" class="nav-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline'" /><span class="nav-logo-icon" style="display:none">🎓</span><span class="nav-logo-text">Mom <em>Grandridge</em> School</span></a>
+        <p>With passion, dedication and a heart full of care, we create a safe and
+        nurturing environment where every child grows, learns and shines.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">ⓕ</a>
+          <a href="#" aria-label="Instagram">◉</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Overview</h4>
+        <a href="#about">About Us</a>
+        <a href="#programs">Classes</a>
+        <a href="#facilities">Facilities</a>
+        <a href="#life">Gallery</a>
+      </div>
+      <div class="footer-col">
+        <h4>Admission</h4>
+        <a href="#admissions">Enroll Now</a>
+        <a href="#contact">Enquiry</a>
+        <a href="#contact">Campus Visit</a>
+        <a href="#testimonials">Parent Reviews</a>
+      </div>
+      <div class="footer-col">
+        <h4>Head Office</h4>
+        <a href="#contact">📍 No. 2-38/2, Plot No.2, Tara Nagar, S2 Circle, Serlingampally, Hyderabad - 19</a>
+        <a href="tel:+919640737373">📞 +91 96407 37373</a>
+        <a href="mailto:admin@momgrandridgeschool.com">✉️ admin@momgrandridgeschool.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Mom Grandridge School — Life. Line. Knowledge. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+
+  <!-- ══════════════ LIGHTBOX ══════════════ -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close image viewer">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">‹</button>
+    <img class="lightbox-img" id="lightboxImg" alt="Mom Grandridge School photo" />
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">›</button>
+  </div>
+
+  <script src="assets/vendor/three.min.js"></script>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
