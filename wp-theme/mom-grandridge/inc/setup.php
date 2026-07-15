@@ -109,10 +109,26 @@ class MGS_Nav_Walker extends Walker_Nav_Menu {
 			return;
 		}
 
-		$classes = array( 'nav-link' );
-		if ( in_array( 'current-menu-item', $item->classes, true ) ) {
+		$classes  = array( 'nav-link' );
+		$is_anchor = false !== strpos( $item->url, '#' );
+
+		if ( $is_anchor ) {
+			// Same-page anchor links (#about, #programs, ...): the
+			// IntersectionObserver in main.js owns "active" state as the
+			// visitor scrolls between sections. WordPress's own
+			// current-menu-item detection ignores URL fragments, so every
+			// anchor link resolves to the same page and would incorrectly
+			// get marked "current" at once — only default Home to active,
+			// matching the state at page load before any scrolling.
+			if ( '#home' === ltrim( $item->url, '/' ) ) {
+				$classes[] = 'active';
+			}
+		} elseif ( in_array( 'current-menu-item', $item->classes, true ) ) {
+			// A real, distinct URL (e.g. a linked Page) — WordPress's
+			// current-item detection is accurate here, so trust it.
 			$classes[] = 'active';
 		}
+
 		$output .= sprintf(
 			'<a href="%1$s" class="%2$s">%3$s</a>',
 			esc_url( $item->url ),
@@ -146,15 +162,18 @@ function mgs_create_default_menu() {
 		return;
 	}
 
+	// Bare same-page anchors, not home_url()-prefixed absolute URLs — the
+	// scroll-highlighting JS in main.js extracts the section id straight
+	// from the href (href.slice(1)), so a full URL here would break it.
 	$items = array(
-		array( 'title' => __( 'Home', 'mom-grandridge' ), 'url' => home_url( '/#home' ) ),
-		array( 'title' => __( 'About', 'mom-grandridge' ), 'url' => home_url( '/#about' ) ),
-		array( 'title' => __( 'Classes', 'mom-grandridge' ), 'url' => home_url( '/#programs' ) ),
-		array( 'title' => __( 'Facilities', 'mom-grandridge' ), 'url' => home_url( '/#facilities' ) ),
-		array( 'title' => __( 'Gallery', 'mom-grandridge' ), 'url' => home_url( '/#life' ) ),
-		array( 'title' => __( 'Parents', 'mom-grandridge' ), 'url' => home_url( '/#testimonials' ) ),
-		array( 'title' => __( 'Contact', 'mom-grandridge' ), 'url' => home_url( '/#contact' ) ),
-		array( 'title' => __( 'Admission', 'mom-grandridge' ), 'url' => home_url( '/#admissions' ), 'classes' => 'nav-cta' ),
+		array( 'title' => __( 'Home', 'mom-grandridge' ), 'url' => '#home' ),
+		array( 'title' => __( 'About', 'mom-grandridge' ), 'url' => '#about' ),
+		array( 'title' => __( 'Classes', 'mom-grandridge' ), 'url' => '#programs' ),
+		array( 'title' => __( 'Facilities', 'mom-grandridge' ), 'url' => '#facilities' ),
+		array( 'title' => __( 'Gallery', 'mom-grandridge' ), 'url' => '#life' ),
+		array( 'title' => __( 'Parents', 'mom-grandridge' ), 'url' => '#testimonials' ),
+		array( 'title' => __( 'Contact', 'mom-grandridge' ), 'url' => '#contact' ),
+		array( 'title' => __( 'Admission', 'mom-grandridge' ), 'url' => '#admissions', 'classes' => 'nav-cta' ),
 	);
 
 	foreach ( $items as $i => $item ) {
@@ -175,3 +194,47 @@ function mgs_create_default_menu() {
 	set_theme_mod( 'nav_menu_locations', $locations );
 }
 add_action( 'after_switch_theme', 'mgs_create_default_menu' );
+
+/**
+ * One-time repair for menus already created by an earlier version of
+ * this theme, which used full home_url()-prefixed anchor URLs (e.g.
+ * "https://site.test/#about") instead of bare fragments ("#about") —
+ * that breaks the scroll-highlighting JS and also makes every anchor
+ * link look "current" to WordPress at once. Runs once (flagged via an
+ * option) and needs no action from the site owner.
+ */
+function mgs_fix_legacy_menu_anchor_urls() {
+	if ( get_option( 'mgs_menu_anchor_fix_done' ) ) {
+		return;
+	}
+
+	$locations = get_theme_mod( 'nav_menu_locations' );
+	if ( empty( $locations['primary'] ) ) {
+		update_option( 'mgs_menu_anchor_fix_done', 1 );
+		return;
+	}
+
+	$menu_id = $locations['primary'];
+	$items   = wp_get_nav_menu_items( $menu_id );
+	$home    = untrailingslashit( home_url() );
+
+	if ( $items ) {
+		foreach ( $items as $menu_item ) {
+			if ( 0 === strpos( $menu_item->url, $home . '/#' ) ) {
+				wp_update_nav_menu_item(
+					$menu_id,
+					$menu_item->ID,
+					array(
+						'menu-item-title'   => $menu_item->title,
+						'menu-item-url'     => substr( $menu_item->url, strlen( $home ) + 1 ),
+						'menu-item-status'  => 'publish',
+						'menu-item-classes' => implode( ' ', (array) $menu_item->classes ),
+					)
+				);
+			}
+		}
+	}
+
+	update_option( 'mgs_menu_anchor_fix_done', 1 );
+}
+add_action( 'admin_init', 'mgs_fix_legacy_menu_anchor_urls' );
