@@ -18,26 +18,32 @@ if ( ! defined( 'ABSPATH' ) ) {
  *     post at all — e.g. the contact-form admin-post.php handler):
  *     reads the prefixed "{group}_{key}" field from the Home page.
  *
- * Either way, an empty/missing value falls back to the section's
- * central default (see acf-field-defs.php's mgs_field_default()) — so
- * the site never renders blank content, even before Secure Custom
- * Fields is installed or before any field has been edited.
+ * Falls back to the section's central default (see acf-field-defs.php's
+ * mgs_field_default()) only when Secure Custom Fields isn't active, or
+ * the field has genuinely never been saved (matching ACF's own
+ * get_field() behaviour of applying default_value to untouched fields).
+ * An explicit '' — the admin cleared the field and saved the page — is
+ * returned as-is rather than masked by the default, so a template can
+ * tell "left blank on purpose" apart from "never edited" and skip
+ * rendering that piece of UI entirely (see e.g. the Hero CTA buttons in
+ * template-parts/hero.php).
  *
  * @param string $group   Section slug, e.g. "hero", "about", "contact".
  * @param string $key     Field key within that section.
  * @param mixed  $default Last-resort fallback if there's no default_value either.
  */
 function mgs_opt( $group, $key, $default = null ) {
-	$in_row = function_exists( 'get_row_layout' ) && get_row_layout();
+	$in_row     = function_exists( 'get_row_layout' ) && get_row_layout();
+	$acf_active = $in_row ? function_exists( 'get_sub_field' ) : function_exists( 'get_field' );
 
 	if ( $in_row ) {
-		$value = function_exists( 'get_sub_field' ) ? get_sub_field( $key ) : null;
+		$value = $acf_active ? get_sub_field( $key ) : null;
 	} else {
 		$home_id = mgs_get_home_page_id();
-		$value   = ( $home_id && function_exists( 'get_field' ) ) ? get_field( "{$group}_{$key}", $home_id ) : null;
+		$value   = ( $home_id && $acf_active ) ? get_field( "{$group}_{$key}", $home_id ) : null;
 	}
 
-	if ( null === $value || '' === $value || false === $value ) {
+	if ( ! $acf_active || null === $value || false === $value ) {
 		$value = mgs_field_default( $group, $key );
 	}
 

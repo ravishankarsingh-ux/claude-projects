@@ -13,10 +13,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<p class="hero-sub reveal-hero">
 			<strong><?php mgs_opt_e( 'hero', 'subtitle_strong' ); ?></strong> — <?php mgs_opt_e( 'hero', 'subtitle_body' ); ?>
 		</p>
+		<?php
+		$mgs_hero_primary_label   = mgs_opt( 'hero', 'cta_primary_label' );
+		$mgs_hero_secondary_label = mgs_opt( 'hero', 'cta_secondary_label' );
+		?>
+		<?php if ( '' !== $mgs_hero_primary_label || '' !== $mgs_hero_secondary_label ) : ?>
 		<div class="hero-actions reveal-hero">
-			<a href="<?php echo esc_url( mgs_opt( 'hero', 'cta_primary_link' ) ); ?>" class="btn btn-primary"><span><?php mgs_opt_e( 'hero', 'cta_primary_label' ); ?></span> <i>→</i></a>
-			<a href="<?php echo esc_url( mgs_opt( 'hero', 'cta_secondary_link' ) ); ?>" class="btn btn-ghost"><span><?php mgs_opt_e( 'hero', 'cta_secondary_label' ); ?></span></a>
+			<?php if ( '' !== $mgs_hero_primary_label ) : ?>
+			<a href="<?php echo esc_url( mgs_opt( 'hero', 'cta_primary_link' ) ); ?>" class="btn btn-primary"><span><?php echo esc_html( $mgs_hero_primary_label ); ?></span> <i>→</i></a>
+			<?php endif; ?>
+			<?php if ( '' !== $mgs_hero_secondary_label ) : ?>
+			<a href="<?php echo esc_url( mgs_opt( 'hero', 'cta_secondary_link' ) ); ?>" class="btn btn-ghost"><span><?php echo esc_html( $mgs_hero_secondary_label ); ?></span></a>
+			<?php endif; ?>
 		</div>
+		<?php endif; ?>
 		<div class="hero-chips reveal-hero">
 			<div class="chip float-1"><?php mgs_opt_e( 'hero', 'chip_1' ); ?></div>
 			<div class="chip float-2"><?php mgs_opt_e( 'hero', 'chip_2' ); ?></div>
