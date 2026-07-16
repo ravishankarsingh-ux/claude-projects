@@ -1,13 +1,11 @@
-name: Deploy websites to GitHub Pages
+name: Deploy devadigm website to GitHub Pages
 
 on:
   push:
     branches:
-      - claude/motion-installation-hvig75
       - main
     paths:
       - "devadigm-website/**"
-      - "school-website/**"
       - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
 
@@ -35,16 +33,10 @@ jobs:
         with:
           enablement: true
 
-      - name: Assemble site (devadigm at root, school site at /school-website/)
-        run: |
-          mkdir -p _site
-          cp -r devadigm-website/. _site/
-          cp -r school-website _site/school-website
-
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: devadigm-website
 
       - name: Deploy to GitHub Pages
         id: deployment
