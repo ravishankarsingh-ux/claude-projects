@@ -194,8 +194,62 @@ function initAmbientField() {
   requestAnimationFrame(animate);
 }
 
+// Entrance + scroll-reveal animations powered by Motion (vendor/motion.min.js,
+// exposed as window.Motion). Skipped entirely when the bundle is missing or
+// the user prefers reduced motion.
+function initMotionEffects() {
+  if (typeof Motion === 'undefined') return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const { animate, inView, stagger } = Motion;
+
+  // Hero entrance
+  const heroItems = document.querySelectorAll('.hero-copy > *');
+  if (heroItems.length) {
+    animate(
+      heroItems,
+      { opacity: [0, 1], y: [28, 0] },
+      { duration: 0.8, delay: stagger(0.12), ease: [0.22, 1, 0.36, 1] }
+    );
+  }
+
+  // Sections fade/slide up as they scroll into view
+  document.querySelectorAll('.section .section-inner').forEach((block) => {
+    block.style.opacity = '0';
+    inView(
+      block,
+      (el) => {
+        animate(
+          el,
+          { opacity: [0, 1], y: [36, 0] },
+          { duration: 0.7, ease: [0.22, 1, 0.36, 1] }
+        );
+      },
+      { amount: 0.2 }
+    );
+  });
+
+  // Service items cascade in individually
+  const services = document.querySelectorAll('.service-item');
+  if (services.length) {
+    services.forEach((item) => { item.style.opacity = '0'; });
+    inView(
+      services[0],
+      () => {
+        animate(
+          services,
+          { opacity: [0, 1], y: [20, 0] },
+          { duration: 0.55, delay: stagger(0.07), ease: [0.22, 1, 0.36, 1] }
+        );
+      },
+      { amount: 0.2 }
+    );
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initHeroConstellation();
   initMiniConstellations();
   initAmbientField();
+  initMotionEffects();
 });
