@@ -1,0 +1,35 @@
+<!-- wp:template-part {"slug":"header","area":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"section","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|96"}}},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group section" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--96)"><!-- wp:group {"className":"section-inner","layout":{"type":"constrained"}} -->
+<div class="wp-block-group section-inner"><!-- wp:paragraph {"className":"eyebrow","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|18"}}}} -->
+<p class="eyebrow" style="margin-bottom:var(--wp--preset--spacing--18)">The blog</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":1,"fontSize":"heading-lg","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
+<h1 class="wp-block-heading has-heading-lg-font-size" style="margin-bottom:var(--wp--preset--spacing--60)">Notes &amp; updates.</h1>
+<!-- /wp:heading -->
+
+<!-- wp:query {"queryId":1,"query":{"perPage":10,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":true}} -->
+<div class="wp-block-query"><!-- wp:post-template {"style":{"spacing":{"blockGap":"0"}}} -->
+<!-- wp:group {"className":"blog-link","layout":{"type":"flow"},"style":{"spacing":{"blockGap":"var:preset|spacing|6"}}} -->
+<div class="wp-block-group blog-link"><!-- wp:post-title {"isLink":true,"level":2,"fontSize":"lead"} /-->
+
+<!-- wp:group {"className":"blog-meta","layout":{"type":"flex","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"var:preset|spacing|12"}}} -->
+<div class="wp-block-group blog-meta"><!-- wp:post-date {"fontSize":"small","textColor":"ash-gray"} /--></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+
+<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"left"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}}} -->
+<!-- wp:query-pagination-previous /-->
+
+<!-- wp:query-pagination-numbers /-->
+
+<!-- wp:query-pagination-next /-->
+<!-- /wp:query-pagination --></div>
+<!-- /wp:query --></div>
+<!-- /wp:group --></main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer","tagName":"footer"} /-->
