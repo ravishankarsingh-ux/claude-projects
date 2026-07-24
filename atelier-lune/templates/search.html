@@ -2,19 +2,17 @@
 
 <!-- wp:group {"tagName":"main","className":"journal","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
 <main class="wp-block-group journal" style="padding-top:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg)"><!-- wp:paragraph {"className":"eyebrow"} -->
-<p class="eyebrow">Journal</p>
+<p class="eyebrow">Search</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":1,"fontSize":"lg","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|md"}}}} -->
-<h1 class="wp-block-heading has-lg-font-size" style="margin-bottom:var(--wp--preset--spacing--md)">From the studio</h1>
-<!-- /wp:heading -->
+<!-- wp:query-title {"type":"search","fontSize":"lg","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|sm"}}}} /-->
 
-<!-- wp:query {"queryId":1,"query":{"perPage":9,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":true}} -->
+<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search the journal…","buttonText":"Search","buttonPosition":"button-inside","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|md"}}}} /-->
+
+<!-- wp:query {"queryId":3,"query":{"perPage":9,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":true}} -->
 <div class="wp-block-query"><!-- wp:post-template {"className":"journal-grid","layout":{"type":"grid","minimumColumnWidth":"18rem"},"style":{"spacing":{"blockGap":"var:preset|spacing|md"}}} -->
 <!-- wp:group {"className":"journal-card","layout":{"type":"flow"},"style":{"spacing":{"blockGap":"0.4rem"}}} -->
-<div class="wp-block-group journal-card"><!-- wp:post-terms {"term":"category","className":"eyebrow"} /-->
-
-<!-- wp:post-title {"isLink":true,"level":3,"style":{"typography":{"fontSize":"1.15rem","fontWeight":"400"}}} /-->
+<div class="wp-block-group journal-card"><!-- wp:post-title {"isLink":true,"level":3,"style":{"typography":{"fontSize":"1.15rem","fontWeight":"400"}}} /-->
 
 <!-- wp:post-excerpt {"excerptLength":22,"textColor":"chalk","fontSize":"sm"} /--></div>
 <!-- /wp:group -->
@@ -22,7 +20,7 @@
 
 <!-- wp:query-no-results -->
 <!-- wp:paragraph {"textColor":"chalk"} -->
-<p class="has-chalk-color has-text-color">No journal entries yet — the studio is busy at the cutting table.</p>
+<p class="has-chalk-color has-text-color">Nothing in the journal matches that search. Try a shorter or different phrase.</p>
 <!-- /wp:paragraph -->
 <!-- /wp:query-no-results -->
 

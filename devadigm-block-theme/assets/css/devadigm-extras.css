@@ -130,3 +130,31 @@ body .wp-site-blocks {
 .site-footer {
 	border-top: 1px solid var(--wp--custom--hairline);
 }
+
+/* ---------- Search block (search template, 404) ---------- */
+
+.wp-block-search__inside-wrapper {
+	border: 1px solid var(--wp--custom--hairline);
+	border-radius: var(--wp--custom--radius--button);
+	background: transparent;
+	padding: 4px 4px 4px 18px;
+}
+
+.wp-block-search__input {
+	border: none;
+	background: transparent;
+	color: var(--wp--preset--color--bone-white);
+	font-size: var(--wp--preset--font-size--small);
+}
+
+.wp-block-search__input::placeholder {
+	color: var(--wp--preset--color--ash-gray);
+}
+
+.wp-block-search__input:focus {
+	outline: none;
+}
+
+.wp-block-search:focus-within .wp-block-search__inside-wrapper {
+	border-color: var(--wp--preset--color--electric-iris);
+}

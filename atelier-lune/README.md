@@ -32,8 +32,10 @@ is theme.json or block attributes.
 - `patterns/` — hero, manifesto, collection, process, bespoke, press,
   journal, contact ("Atelier Lune" pattern category). Section dividers
   (§ 01 / § 02) are folded into the top of manifesto/collection patterns.
-- `templates/` — front-page (all eight patterns), index + archive
-  (journal-card Query Loop), page, single, 404
+- `templates/` — front-page (all eight patterns), index + archive +
+  search (journal-card Query Loop with no-results fallback), page,
+  single, 404 (with search form)
+- `screenshot.png` — theme card image for wp-admin (hero render)
 
 ## After activating on staging
 

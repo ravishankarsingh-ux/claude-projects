@@ -34,7 +34,8 @@ devadigm-block-theme/
 ├── style.css              Theme header
 ├── theme.json             Global styles/settings (source of truth)
 ├── functions.php          Enqueues + pattern category + ambient canvas
-├── templates/             front-page, index, page, single, archive, 404
+├── templates/             front-page, index, page, single, archive, search, 404
+├── screenshot.png         Theme card image for wp-admin (hero render)
 ├── parts/                 header, footer
 ├── patterns/              hero, services, about, team, cta
 └── assets/

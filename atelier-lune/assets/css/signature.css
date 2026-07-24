@@ -286,3 +286,32 @@ html { scroll-behavior: smooth; }
 	font-size: 0.8rem;
 	color: rgba(237, 231, 220, 0.7);
 }
+
+/* ---------- Search block (search template, 404) ---------- */
+
+.wp-block-search__inside-wrapper {
+	border: 1px solid var(--wp--custom--line);
+	border-radius: var(--wp--custom--radius);
+	background: var(--wp--preset--color--cream);
+	padding: 3px 3px 3px 0.75rem;
+}
+
+.wp-block-search__input {
+	border: none;
+	background: transparent;
+	font-family: var(--wp--preset--font-family--body);
+	font-size: 1rem;
+	color: var(--wp--preset--color--ink);
+}
+
+.wp-block-search__input::placeholder {
+	color: var(--wp--preset--color--chalk);
+}
+
+.wp-block-search__input:focus {
+	outline: none;
+}
+
+.wp-block-search:focus-within .wp-block-search__inside-wrapper {
+	border-color: var(--wp--preset--color--plum);
+}
