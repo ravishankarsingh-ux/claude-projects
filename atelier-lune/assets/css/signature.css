@@ -1,0 +1,288 @@
+/*
+ * Atelier Lune — signature elements only.
+ *
+ * Per the layout's block-mapping legend, everything marked
+ * data-gutenberg="custom-css" lives here: cutting-line dividers,
+ * the vertical selvedge label, fabric-swatch textures, and palette
+ * chips. Structural/decorative pieces core blocks can't reproduce.
+ * All colors and spacing reference theme.json presets.
+ */
+
+@media (prefers-reduced-motion: reduce) {
+	html { scroll-behavior: auto; }
+	* { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+html { scroll-behavior: smooth; }
+
+:focus-visible {
+	outline: 2px solid var(--wp--preset--color--plum);
+	outline-offset: 3px;
+}
+
+/* ---------- Eyebrow (mono kicker) ---------- */
+
+.eyebrow {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--xs);
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--plum);
+}
+
+.on-dark .eyebrow {
+	color: var(--wp--preset--color--brass);
+}
+
+/* ---------- Cutting-line divider (signature element) ---------- */
+
+.cutting-line {
+	display: flex;
+	align-items: center;
+	gap: var(--wp--preset--spacing--xs);
+	margin: 0;
+	padding: 0;
+	color: var(--wp--preset--color--chalk);
+}
+
+.cutting-line::before,
+.cutting-line::after {
+	content: "";
+	flex: 1;
+	height: 1px;
+	background-image: repeating-linear-gradient(
+		to right, var(--wp--custom--line) 0 6px, transparent 6px 12px
+	);
+}
+
+.cutting-line .notch {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 0.68rem;
+	letter-spacing: 0.1em;
+	white-space: nowrap;
+}
+
+.on-dark .cutting-line {
+	color: rgba(237, 231, 220, 0.4);
+}
+
+.on-dark .cutting-line::before,
+.on-dark .cutting-line::after {
+	background-image: repeating-linear-gradient(
+		to right, rgba(237, 231, 220, 0.25) 0 6px, transparent 6px 12px
+	);
+}
+
+/* ---------- Sticky nav ---------- */
+
+.site-nav {
+	border-bottom: 1px solid var(--wp--custom--line);
+}
+
+.site-nav .wp-block-navigation a:hover {
+	color: var(--wp--preset--color--plum);
+}
+
+.wp-block-navigation a,
+.wp-block-site-title a {
+	text-decoration: none;
+}
+
+/* ---------- Hero: selvedge label + fabric band ---------- */
+
+.selvedge {
+	writing-mode: vertical-rl;
+	transform: rotate(180deg);
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 0.7rem;
+	letter-spacing: 0.18em;
+	color: var(--wp--preset--color--chalk);
+	border-right: 1px solid var(--wp--custom--line);
+	padding-right: var(--wp--preset--spacing--sm);
+	white-space: nowrap;
+}
+
+.hero-h1 { max-width: 16ch; }
+
+.lede {
+	font-size: var(--wp--preset--font-size--lede);
+	color: var(--wp--preset--color--chalk);
+	max-width: 46ch;
+}
+
+.hero-fabric {
+	margin-top: var(--wp--preset--spacing--lg);
+	height: 220px;
+	border-radius: var(--wp--custom--radius);
+	background:
+		repeating-linear-gradient(115deg, rgba(176, 141, 87, 0.18) 0 2px, transparent 2px 34px),
+		repeating-linear-gradient(25deg, rgba(91, 42, 59, 0.14) 0 2px, transparent 2px 28px),
+		linear-gradient(160deg, var(--wp--preset--color--cream), var(--wp--preset--color--bone));
+}
+
+/* ---------- Buttons: outline (secondary) style ---------- */
+
+.is-style-outline .wp-block-button__link {
+	background: transparent;
+	border: 1px solid var(--wp--preset--color--ink);
+	color: var(--wp--preset--color--ink);
+}
+
+.is-style-outline .wp-block-button__link:hover {
+	background: transparent;
+	border-color: var(--wp--preset--color--plum);
+	color: var(--wp--preset--color--plum);
+}
+
+/* ---------- Collection: fabric swatches (photography stand-ins) ---------- */
+
+.look-swatch {
+	height: 300px;
+	position: relative;
+	border-radius: var(--wp--custom--radius) var(--wp--custom--radius) 0 0;
+}
+
+.swatch-1 { background: linear-gradient(150deg, #3d1f2a, #5b2a3b 60%, #b08d57); }
+.swatch-2 { background: linear-gradient(160deg, #ede7dc, #c9beab 70%, #8c887e); }
+.swatch-3 { background: linear-gradient(140deg, #14161c, #33323a 55%, #5b2a3b); }
+.swatch-4 { background: linear-gradient(150deg, #b08d57, #ede7dc 65%); }
+.swatch-5 { background: linear-gradient(160deg, #5b2a3b, #14161c 70%); }
+.swatch-6 { background: linear-gradient(145deg, #c9beab, #b08d57 60%, #5b2a3b); }
+
+.look-phase {
+	position: absolute;
+	top: var(--wp--preset--spacing--xs);
+	left: var(--wp--preset--spacing--xs);
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 0.66rem;
+	letter-spacing: 0.1em;
+	color: var(--wp--preset--color--bone);
+	background: rgba(20, 22, 28, 0.55);
+	padding: 0.25rem 0.5rem;
+	border-radius: 1px;
+}
+
+.fabric-note {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 0.76rem;
+	color: var(--wp--preset--color--chalk);
+}
+
+.tag {
+	display: inline-block;
+	font-size: var(--wp--preset--font-size--xs);
+	font-family: var(--wp--preset--font-family--mono);
+	letter-spacing: 0.06em;
+	color: var(--wp--preset--color--plum);
+	border: 1px solid var(--wp--preset--color--plum);
+	padding: 0.15rem 0.5rem;
+	border-radius: 20px;
+}
+
+/* ---------- Process steps ---------- */
+
+.step-no {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 0.78rem;
+	color: var(--wp--preset--color--brass);
+	letter-spacing: 0.08em;
+}
+
+.on-dark .step-copy {
+	color: rgba(237, 231, 220, 0.68);
+}
+
+/* ---------- Bespoke: palette chips (global color reference) ---------- */
+
+.palette-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: var(--wp--preset--spacing--sm);
+}
+
+.palette-chip {
+	aspect-ratio: 1;
+	border-radius: var(--wp--custom--radius);
+	display: flex;
+	align-items: flex-end;
+	padding: 0.5rem;
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 0.66rem;
+	letter-spacing: 0.05em;
+}
+
+.chip-ink { background: var(--wp--preset--color--ink); color: var(--wp--preset--color--bone); }
+.chip-bone { background: var(--wp--preset--color--bone); color: var(--wp--preset--color--ink); border: 1px solid var(--wp--custom--line); }
+.chip-cream { background: var(--wp--preset--color--cream); color: var(--wp--preset--color--ink); border: 1px solid var(--wp--custom--line); }
+.chip-plum { background: var(--wp--preset--color--plum); color: var(--wp--preset--color--bone); }
+.chip-brass { background: var(--wp--preset--color--brass); color: var(--wp--preset--color--ink); }
+.chip-chalk { background: var(--wp--preset--color--chalk); color: var(--wp--preset--color--ink); }
+
+/* ---------- Press ---------- */
+
+.press-cite {
+	font-style: normal;
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 0.78rem;
+	color: var(--wp--preset--color--chalk);
+	letter-spacing: 0.06em;
+}
+
+/* ---------- Contact form (placeholder markup until a form plugin lands) ---------- */
+
+.contact-form { display: grid; gap: var(--wp--preset--spacing--sm); }
+
+.contact-form .field { display: grid; gap: 0.35rem; }
+
+.contact-form label {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--xs);
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--chalk);
+}
+
+.contact-form input,
+.contact-form textarea {
+	font-family: var(--wp--preset--font-family--body);
+	font-size: 1rem;
+	padding: 0.75rem;
+	border: 1px solid var(--wp--custom--line);
+	border-radius: var(--wp--custom--radius);
+	background: var(--wp--preset--color--bone);
+	color: var(--wp--preset--color--ink);
+}
+
+.contact-form textarea { resize: vertical; min-height: 110px; }
+
+.contact-form button {
+	font-family: var(--wp--preset--font-family--body);
+	font-size: 0.88rem;
+	font-weight: 500;
+	letter-spacing: 0.02em;
+	padding: 0.85rem 1.6rem;
+	border-radius: var(--wp--custom--radius);
+	border: 1px solid transparent;
+	cursor: pointer;
+	background: var(--wp--preset--color--ink);
+	color: var(--wp--preset--color--bone);
+	justify-self: start;
+}
+
+.contact-form button:hover { background: var(--wp--preset--color--plum); }
+
+/* ---------- Footer ---------- */
+
+.footer-top {
+	border-bottom: 1px solid var(--wp--custom--line-on-dark);
+	padding-bottom: var(--wp--preset--spacing--md);
+}
+
+.site-footer .wp-block-navigation a:hover {
+	color: var(--wp--preset--color--brass);
+}
+
+.footer-bottom {
+	font-size: 0.8rem;
+	color: rgba(237, 231, 220, 0.7);
+}

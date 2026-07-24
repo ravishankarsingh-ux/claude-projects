@@ -1,0 +1,25 @@
+<!-- wp:template-part {"slug":"header","area":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"journal","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group journal" style="padding-top:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg)"><!-- wp:query-title {"type":"archive","fontSize":"lg","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|md"}}}} /-->
+
+<!-- wp:query {"queryId":2,"query":{"perPage":9,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":true}} -->
+<div class="wp-block-query"><!-- wp:post-template {"className":"journal-grid","layout":{"type":"grid","minimumColumnWidth":"18rem"},"style":{"spacing":{"blockGap":"var:preset|spacing|md"}}} -->
+<!-- wp:group {"className":"journal-card","layout":{"type":"flow"},"style":{"spacing":{"blockGap":"0.4rem"}}} -->
+<div class="wp-block-group journal-card"><!-- wp:post-title {"isLink":true,"level":3,"style":{"typography":{"fontSize":"1.15rem","fontWeight":"400"}}} /-->
+
+<!-- wp:post-excerpt {"excerptLength":22,"textColor":"chalk","fontSize":"sm"} /--></div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+
+<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"left"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|md"}}}} -->
+<!-- wp:query-pagination-previous /-->
+
+<!-- wp:query-pagination-numbers /-->
+
+<!-- wp:query-pagination-next /-->
+<!-- /wp:query-pagination --></div>
+<!-- /wp:query --></main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer","tagName":"footer"} /-->

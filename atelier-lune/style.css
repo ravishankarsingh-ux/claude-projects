@@ -1,0 +1,14 @@
+/*
+Theme Name: Atelier Lune
+Theme URI: https://devadigm.com
+Author: Devadigm
+Author URI: https://devadigm.com
+Description: Custom block theme for Atelier Lune — FW26 Phase Collection. Built on core Gutenberg blocks; theme.json is the single source of truth for the ink/bone/plum/brass palette, Fraunces + Inter + IBM Plex Mono type, and the spacing scale. Custom CSS is limited to the signature elements core blocks cannot express (cutting-line dividers, selvedge label, fabric swatches, palette chips).
+Version: 0.1.0
+Requires at least: 6.5
+Tested up to: 6.8
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: atelier-lune
+*/
