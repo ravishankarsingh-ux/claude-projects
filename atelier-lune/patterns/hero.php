@@ -12,7 +12,7 @@
 <div class="selvedge" aria-hidden="true">ATELIER LUNE — FW26 — PHASE — MADE TO ORDER</div>
 <!-- /wp:html -->
 
-<!-- wp:group {"className":"hero-content","layout":{"type":"flow"},"style":{"layout":{"selfStretch":"fill"}}} -->
+<!-- wp:group {"className":"hero-content","layout":{"type":"default"},"style":{"layout":{"selfStretch":"fill"}}} -->
 <div class="wp-block-group hero-content"><!-- wp:paragraph {"className":"eyebrow","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|sm"}}}} -->
 <p class="eyebrow" style="margin-bottom:var(--wp--preset--spacing--sm)">FW26 Collection — Phase</p>
 <!-- /wp:paragraph -->

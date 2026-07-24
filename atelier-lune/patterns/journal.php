@@ -16,7 +16,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:group {"className":"journal-grid","layout":{"type":"grid","minimumColumnWidth":"18rem"},"style":{"spacing":{"blockGap":"var:preset|spacing|md","margin":{"top":"var:preset|spacing|md"}}}} -->
-<div class="wp-block-group journal-grid" style="margin-top:var(--wp--preset--spacing--md)"><!-- wp:group {"className":"journal-card","layout":{"type":"flow"},"style":{"spacing":{"blockGap":"0.4rem"}}} -->
+<div class="wp-block-group journal-grid" style="margin-top:var(--wp--preset--spacing--md)"><!-- wp:group {"className":"journal-card","layout":{"type":"default"},"style":{"spacing":{"blockGap":"0.4rem"}}} -->
 <div class="wp-block-group journal-card"><!-- wp:paragraph {"className":"eyebrow"} -->
 <p class="eyebrow">Process</p>
 <!-- /wp:paragraph -->
@@ -30,7 +30,7 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"journal-card","layout":{"type":"flow"},"style":{"spacing":{"blockGap":"0.4rem"}}} -->
+<!-- wp:group {"className":"journal-card","layout":{"type":"default"},"style":{"spacing":{"blockGap":"0.4rem"}}} -->
 <div class="wp-block-group journal-card"><!-- wp:paragraph {"className":"eyebrow"} -->
 <p class="eyebrow">Materials</p>
 <!-- /wp:paragraph -->
@@ -44,7 +44,7 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"journal-card","layout":{"type":"flow"},"style":{"spacing":{"blockGap":"0.4rem"}}} -->
+<!-- wp:group {"className":"journal-card","layout":{"type":"default"},"style":{"spacing":{"blockGap":"0.4rem"}}} -->
 <div class="wp-block-group journal-card"><!-- wp:paragraph {"className":"eyebrow"} -->
 <p class="eyebrow">Studio</p>
 <!-- /wp:paragraph -->

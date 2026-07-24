@@ -20,7 +20,7 @@
 <!-- /wp:html -->
 
 <!-- wp:group {"className":"process-steps","layout":{"type":"grid","minimumColumnWidth":"13rem"},"style":{"spacing":{"blockGap":"var:preset|spacing|md","margin":{"top":"var:preset|spacing|md"}}}} -->
-<div class="wp-block-group process-steps" style="margin-top:var(--wp--preset--spacing--md)"><!-- wp:group {"className":"step","layout":{"type":"flow"},"style":{"spacing":{"blockGap":"0.4rem"}}} -->
+<div class="wp-block-group process-steps" style="margin-top:var(--wp--preset--spacing--md)"><!-- wp:group {"className":"step","layout":{"type":"default"},"style":{"spacing":{"blockGap":"0.4rem"}}} -->
 <div class="wp-block-group step"><!-- wp:paragraph {"className":"step-no"} -->
 <p class="step-no">01</p>
 <!-- /wp:paragraph -->
@@ -34,7 +34,7 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"step","layout":{"type":"flow"},"style":{"spacing":{"blockGap":"0.4rem"}}} -->
+<!-- wp:group {"className":"step","layout":{"type":"default"},"style":{"spacing":{"blockGap":"0.4rem"}}} -->
 <div class="wp-block-group step"><!-- wp:paragraph {"className":"step-no"} -->
 <p class="step-no">02</p>
 <!-- /wp:paragraph -->
@@ -48,7 +48,7 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"step","layout":{"type":"flow"},"style":{"spacing":{"blockGap":"0.4rem"}}} -->
+<!-- wp:group {"className":"step","layout":{"type":"default"},"style":{"spacing":{"blockGap":"0.4rem"}}} -->
 <div class="wp-block-group step"><!-- wp:paragraph {"className":"step-no"} -->
 <p class="step-no">03</p>
 <!-- /wp:paragraph -->
@@ -62,7 +62,7 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"step","layout":{"type":"flow"},"style":{"spacing":{"blockGap":"0.4rem"}}} -->
+<!-- wp:group {"className":"step","layout":{"type":"default"},"style":{"spacing":{"blockGap":"0.4rem"}}} -->
 <div class="wp-block-group step"><!-- wp:paragraph {"className":"step-no"} -->
 <p class="step-no">04</p>
 <!-- /wp:paragraph -->
