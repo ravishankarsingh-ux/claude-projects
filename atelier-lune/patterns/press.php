@@ -13,7 +13,7 @@
 <!-- /wp:paragraph --></blockquote>
 <!-- /wp:quote -->
 
-<!-- wp:paragraph {"align":"center","className":"press-cite"} -->
+<!-- wp:paragraph {"className":"press-cite","style":{"typography":{"textAlign":"center"}}} -->
 <p class="has-text-align-center press-cite">— The Thread Review, FW26 season notes</p>
 <!-- /wp:paragraph --></section>
 <!-- /wp:group -->

@@ -6,8 +6,8 @@
  * Description: Cream contact section. The form is placeholder markup — replace the Custom HTML block with a Contact Form 7 / WPForms shortcode block for a working form.
  */
 ?>
-<!-- wp:group {"tagName":"section","anchor":"contact","className":"contact","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|xl"}}},"backgroundColor":"cream","layout":{"type":"constrained"}} -->
-<section class="wp-block-group contact has-cream-background-color has-background" id="contact" style="padding-top:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl)"><!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|lg"}}}} -->
+<!-- wp:group {"tagName":"section","className":"contact","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|xl"}}},"backgroundColor":"cream","layout":{"type":"constrained"},"anchor":"contact"} -->
+<section id="contact" class="wp-block-group contact has-cream-background-color has-background" style="padding-top:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--xl)"><!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|lg"}}}} -->
 <div class="wp-block-columns"><!-- wp:column {"width":"45%"} -->
 <div class="wp-block-column" style="flex-basis:45%"><!-- wp:paragraph {"className":"eyebrow"} -->
 <p class="eyebrow">Contact</p>

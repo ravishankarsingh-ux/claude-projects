@@ -6,8 +6,8 @@
  * Description: Bespoke commissions copy with CTA and the studio palette chip grid.
  */
 ?>
-<!-- wp:group {"tagName":"section","anchor":"bespoke","className":"bespoke","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
-<section class="wp-block-group bespoke" id="bespoke" style="padding-top:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg)"><!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|lg"}}}} -->
+<!-- wp:group {"tagName":"section","className":"bespoke","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"},"anchor":"bespoke"} -->
+<section id="bespoke" class="wp-block-group bespoke" style="padding-top:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg)"><!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|lg"}}}} -->
 <div class="wp-block-columns are-vertically-aligned-center"><!-- wp:column {"verticalAlignment":"center","width":"52%"} -->
 <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:52%"><!-- wp:paragraph {"className":"eyebrow"} -->
 <p class="eyebrow">Bespoke</p>

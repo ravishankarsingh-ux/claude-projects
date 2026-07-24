@@ -12,8 +12,8 @@
 <!-- /wp:html --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"tagName":"section","anchor":"atelier","className":"manifesto","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
-<section class="wp-block-group manifesto" id="atelier" style="padding-top:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg)"><!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|lg"}}}} -->
+<!-- wp:group {"tagName":"section","className":"manifesto","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"},"anchor":"atelier"} -->
+<section id="atelier" class="wp-block-group manifesto" style="padding-top:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg)"><!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|lg"}}}} -->
 <div class="wp-block-columns"><!-- wp:column {"width":"41.66%"} -->
 <div class="wp-block-column" style="flex-basis:41.66%"><!-- wp:paragraph {"className":"eyebrow"} -->
 <p class="eyebrow">Note 001</p>

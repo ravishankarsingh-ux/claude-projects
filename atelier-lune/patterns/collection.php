@@ -12,9 +12,9 @@
 <!-- /wp:html --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"tagName":"section","anchor":"collection","className":"collection","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
-<section class="wp-block-group collection" id="collection" style="padding-top:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg)"><!-- wp:group {"className":"section-head","style":{"spacing":{"blockGap":"var:preset|spacing|md","margin":{"bottom":"var:preset|spacing|md"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"bottom"}} -->
-<div class="wp-block-group section-head" style="margin-bottom:var(--wp--preset--spacing--md)"><!-- wp:group {"layout":{"type":"default"},"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}}} -->
+<!-- wp:group {"tagName":"section","className":"collection","style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"},"anchor":"collection"} -->
+<section id="collection" class="wp-block-group collection" style="padding-top:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg)"><!-- wp:group {"className":"section-head","style":{"spacing":{"blockGap":"var:preset|spacing|md","margin":{"bottom":"var:preset|spacing|md"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"bottom"}} -->
+<div class="wp-block-group section-head" style="margin-bottom:var(--wp--preset--spacing--md)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"default"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"className":"eyebrow"} -->
 <p class="eyebrow">The Collection</p>
 <!-- /wp:paragraph -->
@@ -24,13 +24,13 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:paragraph {"textColor":"chalk","style":{"layout":{"selfStretch":"fixed","flexSize":"40ch"}}} -->
+<!-- wp:paragraph {"style":{"layout":{"selfStretch":"fixed","flexSize":"40ch"}},"textColor":"chalk"} -->
 <p class="has-chalk-color has-text-color">Each look is made to order in the studio, four to six weeks from first fitting to final press.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"look-grid","layout":{"type":"grid","minimumColumnWidth":"20rem"},"style":{"spacing":{"blockGap":"var:preset|spacing|md"}}} -->
-<div class="wp-block-group look-grid"><!-- wp:group {"className":"look-card","backgroundColor":"cream","style":{"border":{"radius":"2px"},"spacing":{"blockGap":"0"}},"layout":{"type":"default"}} -->
+<!-- wp:group {"className":"look-grid","style":{"spacing":{"blockGap":"var:preset|spacing|md"}},"layout":{"type":"grid","minimumColumnWidth":"20rem"}} -->
+<div class="wp-block-group look-grid"><!-- wp:group {"className":"look-card","style":{"border":{"radius":"2px"},"spacing":{"blockGap":"0"}},"backgroundColor":"cream","layout":{"type":"default"}} -->
 <div class="wp-block-group look-card has-cream-background-color has-background" style="border-radius:2px"><!-- wp:html -->
 <div class="look-swatch swatch-1"><span class="look-phase">Phase — New</span></div>
 <!-- /wp:html -->
@@ -50,7 +50,7 @@
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"look-card","backgroundColor":"cream","style":{"border":{"radius":"2px"},"spacing":{"blockGap":"0"}},"layout":{"type":"default"}} -->
+<!-- wp:group {"className":"look-card","style":{"border":{"radius":"2px"},"spacing":{"blockGap":"0"}},"backgroundColor":"cream","layout":{"type":"default"}} -->
 <div class="wp-block-group look-card has-cream-background-color has-background" style="border-radius:2px"><!-- wp:html -->
 <div class="look-swatch swatch-2"><span class="look-phase">Phase — Crescent</span></div>
 <!-- /wp:html -->
@@ -70,7 +70,7 @@
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"look-card","backgroundColor":"cream","style":{"border":{"radius":"2px"},"spacing":{"blockGap":"0"}},"layout":{"type":"default"}} -->
+<!-- wp:group {"className":"look-card","style":{"border":{"radius":"2px"},"spacing":{"blockGap":"0"}},"backgroundColor":"cream","layout":{"type":"default"}} -->
 <div class="wp-block-group look-card has-cream-background-color has-background" style="border-radius:2px"><!-- wp:html -->
 <div class="look-swatch swatch-3"><span class="look-phase">Phase — Full</span></div>
 <!-- /wp:html -->
@@ -90,7 +90,7 @@
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"look-card","backgroundColor":"cream","style":{"border":{"radius":"2px"},"spacing":{"blockGap":"0"}},"layout":{"type":"default"}} -->
+<!-- wp:group {"className":"look-card","style":{"border":{"radius":"2px"},"spacing":{"blockGap":"0"}},"backgroundColor":"cream","layout":{"type":"default"}} -->
 <div class="wp-block-group look-card has-cream-background-color has-background" style="border-radius:2px"><!-- wp:html -->
 <div class="look-swatch swatch-4"><span class="look-phase">Phase — Crescent</span></div>
 <!-- /wp:html -->
@@ -110,7 +110,7 @@
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"look-card","backgroundColor":"cream","style":{"border":{"radius":"2px"},"spacing":{"blockGap":"0"}},"layout":{"type":"default"}} -->
+<!-- wp:group {"className":"look-card","style":{"border":{"radius":"2px"},"spacing":{"blockGap":"0"}},"backgroundColor":"cream","layout":{"type":"default"}} -->
 <div class="wp-block-group look-card has-cream-background-color has-background" style="border-radius:2px"><!-- wp:html -->
 <div class="look-swatch swatch-5"><span class="look-phase">Phase — New</span></div>
 <!-- /wp:html -->
@@ -130,7 +130,7 @@
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"look-card","backgroundColor":"cream","style":{"border":{"radius":"2px"},"spacing":{"blockGap":"0"}},"layout":{"type":"default"}} -->
+<!-- wp:group {"className":"look-card","style":{"border":{"radius":"2px"},"spacing":{"blockGap":"0"}},"backgroundColor":"cream","layout":{"type":"default"}} -->
 <div class="wp-block-group look-card has-cream-background-color has-background" style="border-radius:2px"><!-- wp:html -->
 <div class="look-swatch swatch-6"><span class="look-phase">Phase — Wane</span></div>
 <!-- /wp:html -->

@@ -7,12 +7,12 @@
  */
 ?>
 <!-- wp:group {"tagName":"section","className":"hero","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|lg"}}},"layout":{"type":"constrained"}} -->
-<section class="wp-block-group hero" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--lg)"><!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"stretch"},"style":{"spacing":{"blockGap":"var:preset|spacing|md"}}} -->
+<section class="wp-block-group hero" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--lg)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|md"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"stretch"}} -->
 <div class="wp-block-group"><!-- wp:html -->
 <div class="selvedge" aria-hidden="true">ATELIER LUNE — FW26 — PHASE — MADE TO ORDER</div>
 <!-- /wp:html -->
 
-<!-- wp:group {"className":"hero-content","layout":{"type":"default"},"style":{"layout":{"selfStretch":"fill"}}} -->
+<!-- wp:group {"className":"hero-content","style":{"layout":{"selfStretch":"fill"}},"layout":{"type":"default"}} -->
 <div class="wp-block-group hero-content"><!-- wp:paragraph {"className":"eyebrow","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|sm"}}}} -->
 <p class="eyebrow" style="margin-bottom:var(--wp--preset--spacing--sm)">FW26 Collection — Phase</p>
 <!-- /wp:paragraph -->
